@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import StudentProfile from "./Pages/StudentProfilePage";
 import Landing from "./Pages/LandingPage";
 import Info from "./Pages/InfoPage";
 import resumeFile from "./images/JulissaZavala_Resume_2024.pdf";
@@ -24,7 +23,6 @@ const App = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/info" element={<Info />} />
         <Route path="/resume" element={resumeElement()} />
-        {/* <Route path="/studentProfile" element={<StudentProfile />} /> */}
       </Routes>
     </>
   );
