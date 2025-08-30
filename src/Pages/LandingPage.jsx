@@ -27,6 +27,7 @@ const Landing = () => {
                 alt="Down arrow"
                 className="down-arrow"
               />
+              {/* TODO: Make selected work less font weight */}
               <h3 className="selected-work-text">SELECTED WORK</h3>
               <img
                 src={downArrowIcon}

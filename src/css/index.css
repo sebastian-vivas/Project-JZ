@@ -46,14 +46,14 @@ h1, h2, h3, h4, h5, h6, p {
 
 .nav-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .nav-text-link-wrapper {
     position: relative;
     cursor: auto;
     cursor: pointer;
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 .nav-text {
@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .nav-text-link-wrapper:hover {
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 .nav-text-link-wrapper:hover .nav-text-line-through {
@@ -182,6 +182,7 @@ h1, h2, h3, h4, h5, h6, p {
     text-align: center;
     display: inline-block;
     margin: 0px 8px;
+    font-weight: 100;
 }
 
 .case-studies-container {
@@ -230,23 +231,39 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .case-study-read-more {
+    position: relative;
     color: #1E1E1E;
     font-family: 'univers-condensed-medium';
     font-size: 12px;
+    cursor: auto;
     cursor: pointer;
-    position: relative;
     top: 36px;
     text-decoration: none;
+    display: block;
+    display: flex;
+    flex-direction: row;
+    width: 85px;
+    margin-top: 25px;
+}
+
+.case-study-read-more .nav-text-line-through {
+    bottom: 12px;
 }
 
 .case-study-read-more:hover {
     color: #1E1E1E;
 }
 
+.case-study-read-more:hover .nav-text-line-through {
+  transform: translateY(-50%) scaleX(1);
+  bottom: 12px;
+}
+
 .right-arrow {
     margin-left: 8px;
     position: relative;
-    top: 10px;
+    bottom: 6px;
+    display: block;
 }
 
 .case-study-company-name {
@@ -285,7 +302,8 @@ h1, h2, h3, h4, h5, h6, p {
    margin: 0px;
 }
 
-.info-bio-details-2 {
+.info-bio-detail {
+    display: block;
     margin-top: 10px;
 }
 
@@ -314,15 +332,30 @@ h1, h2, h3, h4, h5, h6, p {
     width: 48%;
 }
 
+.custom-video {
+    display: block;
+    margin-left: auto;
+    width: 461px;
+    height: 254px;
+}
+
+.custom-video::-webkit-media-controls-volume-slider,
+.custom-video::-webkit-media-controls-mute-button {
+    display: none !important;
+}
+
 .info-bio-details-3 {
     width: 85%;
+    margin: 26px 0px;
     margin-left: auto;
-    margin-bottom: 24px;
 }
 
 .ceramic-pot {
     display: inline-block;
-    width: 43%;
+    position: relative;
+    bottom: 11px;
+    width: 42%;
+
 }
 
 .ceramic-sculpture {

@@ -4,6 +4,7 @@ import selfie from "../images/about.jpg";
 import diagonalArrowUpIcon from "../images/diagonal-arrow-up.svg";
 import ceramicPot from "../images/ceramic-pot.svg";
 import ceramicSculpture from "../images/ceramic-sculpture.svg";
+import ceramicHandsFeet from "../images/ceramicHandsFeet.mp4";
 import resumeFile from "../images/JulissaZavala_Resume_2024.pdf";
 
 const Info = () => {
@@ -17,23 +18,25 @@ const Info = () => {
               <p className="info-bio-details">
                 My name is Julissa Zavala and I am currently based in Queens,
                 New York (where I’m from!).
-                <p className="info-bio-details-2">
+                <span className="info-bio-detail">
                   I’m a Product Designer with four years of experience creating
                   tools for a range of users, from teachers and guidance
                   counselors to shelter directors, at New Visions for Public
                   Schools.
-                </p>
-                Good design should feel seamless, almost invisible.
-                <br />
-                But the process to get there isn’t always straightforward; every
-                solution comes from conversations, decisions, and countless
-                iterations. The hidden work behind every great design has always
-                pulled me in, and that process is what keeps me learning and
-                growing as a designer. I take pride in the details, knowing they
-                add up to something meaningful. For me, design is about creating
-                solutions that make people’s lives easier, while also keeping
-                the bigger picture in focus so the work meets business goals
-                with clarity and purpose.
+                </span>
+                <span className="info-bio-detail">
+                  Good design should feel seamless, almost invisible.
+                  <br />
+                  But the process to get there isn’t always straightforward;
+                  every solution comes from conversations, decisions, and
+                  countless iterations. The hidden work behind every great
+                  design has always pulled me in, and that process is what keeps
+                  me learning and growing as a designer. I take pride in the
+                  details, knowing they add up to something meaningful. For me,
+                  design is about creating solutions that make people’s lives
+                  easier, while also keeping the bigger picture in focus so the
+                  work meets business goals with clarity and purpose.
+                </span>
               </p>
               <p className="info-bio-question">
                 Want to learn more about my work experience?
@@ -56,16 +59,16 @@ const Info = () => {
             <img className="info-image" src={selfie}></img>
           </section>
           <section className="info-container-right">
-            {/* <video></video> */}
-            <div
-              style={{
-                width: 461,
-                height: 254,
-                border: "1px solid black",
-                marginLeft: "auto",
-                marginBottom: 24,
-              }}
-            ></div>
+            <video
+              controls
+              muted
+              className="custom-video"
+              controlsList="nodownload noplaybackrate noremoteplayback"
+              disablePictureInPicture
+            >
+              <source src={ceramicHandsFeet} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <p className="info-bio-details-3">
               When I’m away from my computer, you can usually find me in the
               kitchen trying out new recipes, going on long walks with my dog

@@ -21,7 +21,8 @@ const CaseStudy = ({ route, containerStyles }) => {
           and coordinate support for those in need of intervention.
         </p>
         <Link to={`/${route}`} className="case-study-read-more">
-          READ MORE
+          <div className="nav-text">READ MORE</div>
+          <div className="nav-text-line-through"></div>
           <img src={rightArrowIcon} alt="Right arrow" className="right-arrow" />
         </Link>
       </section>
