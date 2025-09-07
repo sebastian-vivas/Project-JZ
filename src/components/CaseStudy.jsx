@@ -137,7 +137,7 @@ const CaseStudy = ({ route, containerStyles }) => {
           <div className={classes.readMoreTextLineThrough}></div>
           <img
             src={rightArrowIcon}
-            alt="Right arrow"
+            alt="Black arrow pointing to the right"
             className={classes.rightArrow}
           />
         </Link>

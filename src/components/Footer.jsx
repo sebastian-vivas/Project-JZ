@@ -145,7 +145,7 @@ const Footer = ({ containerStyles }) => {
 
   return (
     <footer className={classes.footerContainer} style={containerStyles}>
-      <h4 className={classes.footerHeading}>Let's Connect! :)</h4>
+      <h4 className={classes.footerHeading}>Let&#8217;s Connect! :)</h4>
       <section className={classes.footerLinksCopyright}>
         <section>
           <a

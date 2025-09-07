@@ -96,13 +96,13 @@ const Landing = () => {
             <section>
               <img
                 src={downArrowIcon}
-                alt="Down arrow"
+                alt="Black arrow pointing down"
                 className={classes.downArrow}
               />
               <h3 className={classes.selectedWorkText}>SELECTED WORK</h3>
               <img
                 src={downArrowIcon}
-                alt="Down arrow"
+                alt="Black arrow pointing down"
                 className={classes.downArrow}
               />
             </section>

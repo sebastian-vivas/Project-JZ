@@ -159,24 +159,24 @@ const Info = () => {
             <section className={classes.infoBio}>
               <p className={classes.infoBioDetails}>
                 My name is Julissa Zavala and I am currently based in Queens,
-                New York (where I’m from!).
+                New York (where I&#8217;m from!).
                 <span className={classes.infoBioDetail}>
-                  I’m a Product Designer with four years of experience creating
-                  tools for a range of users, from teachers and guidance
-                  counselors to shelter directors, at New Visions for Public
-                  Schools.
+                  I&#8217;m a Product Designer with four years of experience
+                  creating tools for a range of users, from teachers and
+                  guidance counselors to shelter directors, at New Visions for
+                  Public Schools.
                 </span>
                 <span className={classes.infoBioDetail}>
                   Good design should feel seamless, almost invisible. But the
-                  process to get there isn’t always straightforward; every
+                  process to get there isn&#8217;t always straightforward; every
                   solution comes from conversations, decisions, and countless
                   iterations. The hidden work behind every great design has
                   always pulled me in, and that process is what keeps me
                   learning and growing as a designer. I take pride in the
                   details, knowing they add up to something meaningful. For me,
-                  design is about creating solutions that make people’s lives
-                  easier, while also keeping the bigger picture in focus so the
-                  work meets business goals with clarity and purpose.
+                  design is about creating solutions that make people&#8217;s
+                  lives easier, while also keeping the bigger picture in focus
+                  so the work meets business goals with clarity and purpose.
                 </span>
               </p>
               <p className={classes.infoBioQuestion}>
@@ -191,13 +191,17 @@ const Info = () => {
                   Take a look at my resume{" "}
                   <img
                     src={diagonalArrowUpIcon}
-                    alt="Diagonal arrow up"
+                    alt="Black arrow pointing up to the right diagonally"
                     className={classes.diagonalArrowUp}
                   />
                 </a>
               </p>
             </section>
-            <img className={classes.infoImage} src={selfie}></img>
+            <img
+              className={classes.infoImage}
+              src={selfie}
+              alt="A photo of me, Julissa Zavala, smiling and standing in front of closed storefront in NYC"
+            ></img>
           </section>
           <section className={classes.infoContainerRight}>
             <video
@@ -213,14 +217,14 @@ const Info = () => {
               Your browser does not support the video tag.
             </video>
             <p className={classes.infoBioDetails3}>
-              When I’m away from my computer, you can usually find me in the
-              kitchen trying out new recipes, going on long walks with my dog
-              Penny, or more recently, learning how to dance salsa.
+              When I&#8217;m away from my computer, you can usually find me in
+              the kitchen trying out new recipes, going on long walks with my
+              dog Penny, or more recently, learning how to dance salsa.
             </p>
             <p className={classes.infoBioDetails3}>
               I also really enjoy hands-on creative work like sketching,
-              painting and ceramics. Here’s some recent ceramics projects I’ve
-              been working on, at various point of WIP!
+              painting and ceramics. Here&#8217;s some recent ceramics projects
+              I&#8217;ve been working on, at various point of WIP!
             </p>
             <img
               src={ceramicPot}
