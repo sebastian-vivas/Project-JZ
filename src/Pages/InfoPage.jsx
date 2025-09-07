@@ -6,43 +6,177 @@ import ceramicPot from "../images/ceramic-pot.svg";
 import ceramicSculpture from "../images/ceramic-sculpture.svg";
 import ceramicHandsFeet from "../images/ceramicHandsFeet.mp4";
 import resumeFile from "../images/JulissaZavala_Resume_2024.pdf";
+import { createUseStyles } from "react-jss";
+
+const useStyles = createUseStyles({
+  infoContainer: {
+    paddingTop: 32,
+    paddingBottom: 32,
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    fontFamily: "Arial, sans-serif",
+    fontSize: 14,
+    lineHeight: 1.3,
+    "@media (min-width: 701px) and (max-width: 1270px)": {
+      flexDirection: "column",
+      justifyContent: "center",
+    },
+  },
+  infoContainerLeft: {
+    display: "flex",
+    flexDirection: "row",
+    width: "50%",
+    "@media (min-width: 701px) and (max-width: 1270px)": {
+      width: "80%",
+      marginBottom: "3%",
+    },
+    "@media (min-width: 0px) and (max-width: 930px)": {
+      flexDirection: "column-reverse",
+      marginBottom: 0,
+      width: "100%",
+    },
+  },
+  infoBio: {
+    width: "52%",
+    "@media (min-width: 0px) and (max-width: 930px)": {
+      width: "90%",
+    },
+  },
+  infoBioDetails: {
+    margin: 0,
+  },
+  infoBioDetail: {
+    display: "block",
+    marginTop: 10,
+    "@media (min-width: 0px) and (max-width: 930px)": {
+      marginTop: 24,
+    },
+  },
+  infoBioQuestion: {
+    position: "relative",
+    top: 80,
+    "@media (min-width: 931px) and (max-width: 1270px)": {
+      position: "absolute",
+      top: 447,
+    },
+    "@media (min-width: 0px) and (max-width: 930px)": {
+      top: 0,
+      marginTop: 24,
+    },
+  },
+  resumePdf: {
+    color: "#1E1E1E",
+    textDecoration: "none",
+  },
+  diagonalArrowUp: {
+    position: "relative",
+    top: 3,
+    right: 2,
+  },
+  infoImage: {
+    width: 264,
+    height: 319,
+    marginLeft: "8%",
+    "@media (min-width: 931px) and (max-width: 1270px)": {
+      marginLeft: "4%",
+    },
+    "@media (min-width: 0px) and (max-width: 930px)": {
+      marginLeft: 0,
+      marginBottom: 24,
+    },
+  },
+  infoContainerRight: {
+    width: "48%",
+    "@media (min-width: 931px) and (max-width: 1270px)": {
+      marginLeft: "auto",
+      width: "60%",
+    },
+    "@media (min-width: 0px) and (max-width: 930px)": {
+      marginTop: 24,
+      width: "100%",
+    },
+  },
+  customVideo: {
+    display: "block",
+    marginLeft: "auto",
+    width: "75%",
+    height: "auto",
+    "&::-webkit-media-controls-volume-slider, &::-webkit-media-controls-mute-button":
+      {
+        display: "none !important",
+      },
+    "@media (min-width: 0px) and (max-width: 930px)": {
+      marginLeft: 0,
+    },
+  },
+  infoBioDetails3: {
+    width: "85%",
+    marginTop: 26,
+    marginBottom: 26,
+    marginLeft: "auto",
+    marginRight: 0,
+    "@media (min-width: 931px) and (max-width: 1270px)": {
+      width: "95%",
+    },
+    "@media (min-width: 0px) and (max-width: 930px)": {
+      width: "95%",
+      marginLeft: 0,
+      marginTop: 24,
+      marginBottom: 24,
+    },
+  },
+  ceramicPot: {
+    display: "inline-block",
+    position: "relative",
+    bottom: 11,
+    width: "42%",
+  },
+  ceramicSculpture: {
+    display: "inline-block",
+    width: "49%",
+    marginLeft: "9%",
+  },
+});
 
 const Info = () => {
+  const classes = useStyles();
+
   return (
     <>
       <section className="container">
         <HeaderNav />
-        <section className="info-container">
-          <section className="info-container-left">
-            <section className="info-bio">
-              <p className="info-bio-details">
+        <section className={classes.infoContainer}>
+          <section className={classes.infoContainerLeft}>
+            <section className={classes.infoBio}>
+              <p className={classes.infoBioDetails}>
                 My name is Julissa Zavala and I am currently based in Queens,
                 New York (where I’m from!).
-                <span className="info-bio-detail">
+                <span className={classes.infoBioDetail}>
                   I’m a Product Designer with four years of experience creating
                   tools for a range of users, from teachers and guidance
                   counselors to shelter directors, at New Visions for Public
                   Schools.
                 </span>
-                <span className="info-bio-detail">
-                  Good design should feel seamless, almost invisible.
-                  <br />
-                  But the process to get there isn’t always straightforward;
-                  every solution comes from conversations, decisions, and
-                  countless iterations. The hidden work behind every great
-                  design has always pulled me in, and that process is what keeps
-                  me learning and growing as a designer. I take pride in the
+                <span className={classes.infoBioDetail}>
+                  Good design should feel seamless, almost invisible. But the
+                  process to get there isn’t always straightforward; every
+                  solution comes from conversations, decisions, and countless
+                  iterations. The hidden work behind every great design has
+                  always pulled me in, and that process is what keeps me
+                  learning and growing as a designer. I take pride in the
                   details, knowing they add up to something meaningful. For me,
                   design is about creating solutions that make people’s lives
                   easier, while also keeping the bigger picture in focus so the
                   work meets business goals with clarity and purpose.
                 </span>
               </p>
-              <p className="info-bio-question">
+              <p className={classes.infoBioQuestion}>
                 Want to learn more about my work experience?
                 <br />
                 <a
-                  className="resume-pdf"
+                  className={classes.resumePdf}
                   target="_blank"
                   rel="noopener noreferrer"
                   href={resumeFile}
@@ -51,30 +185,30 @@ const Info = () => {
                   <img
                     src={diagonalArrowUpIcon}
                     alt="Diagonal arrow up"
-                    className="diagonal-arrow-up"
+                    className={classes.diagonalArrowUp}
                   />
                 </a>
               </p>
             </section>
-            <img className="info-image" src={selfie}></img>
+            <img className={classes.infoImage} src={selfie}></img>
           </section>
-          <section className="info-container-right">
+          <section className={classes.infoContainerRight}>
             <video
               controls
               muted
-              className="custom-video"
+              className={classes.customVideo}
               controlsList="nodownload noplaybackrate noremoteplayback"
               disablePictureInPicture
             >
               <source src={ceramicHandsFeet} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <p className="info-bio-details-3">
+            <p className={classes.infoBioDetails3}>
               When I’m away from my computer, you can usually find me in the
               kitchen trying out new recipes, going on long walks with my dog
               Penny, or more recently, learning how to dance salsa.
             </p>
-            <p className="info-bio-details-3">
+            <p className={classes.infoBioDetails3}>
               I also really enjoy hands-on creative work like sketching,
               painting and ceramics. Here’s some recent ceramics projects I’ve
               been working on, at various point of WIP!
@@ -82,12 +216,12 @@ const Info = () => {
             <img
               src={ceramicPot}
               alt="Cerapic pot of a girl with black hair and large hands leaning over and cradling herself"
-              className="ceramic-pot"
+              className={classes.ceramicPot}
             />
             <img
               src={ceramicSculpture}
               alt="Ceramic sculpture of a hand holding a flower. The hand has a chrome finish and the flower has yellow petals and a green stem"
-              className="ceramic-sculpture"
+              className={classes.ceramicSculpture}
             />
           </section>
         </section>
