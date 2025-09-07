@@ -41,7 +41,7 @@ const useStyles = createUseStyles({
   infoBio: {
     width: "52%",
     "@media (min-width: 0px) and (max-width: 930px)": {
-      width: "90%",
+      width: "100%",
     },
   },
   infoBioDetails: {
@@ -78,6 +78,7 @@ const useStyles = createUseStyles({
   infoImage: {
     width: 264,
     height: 319,
+    borderRadius: 6,
     marginLeft: "8%",
     "@media (min-width: 931px) and (max-width: 1270px)": {
       marginLeft: "4%",
@@ -103,12 +104,16 @@ const useStyles = createUseStyles({
     marginLeft: "auto",
     width: "75%",
     height: "auto",
+    borderRadius: 6,
     "&::-webkit-media-controls-volume-slider, &::-webkit-media-controls-mute-button":
       {
         display: "none !important",
       },
     "@media (min-width: 0px) and (max-width: 930px)": {
-      marginLeft: 0,
+      // marginLeft: 0,
+    },
+    "@media (min-width: 0px) and (max-width: 499px)": {
+      width: "100%",
     },
   },
   infoBioDetails3: {
@@ -121,7 +126,7 @@ const useStyles = createUseStyles({
       width: "95%",
     },
     "@media (min-width: 0px) and (max-width: 930px)": {
-      width: "95%",
+      width: "100%",
       marginLeft: 0,
       marginTop: 24,
       marginBottom: 24,
@@ -132,11 +137,13 @@ const useStyles = createUseStyles({
     position: "relative",
     bottom: 11,
     width: "42%",
+    borderRadius: 6,
   },
   ceramicSculpture: {
     display: "inline-block",
     width: "49%",
     marginLeft: "9%",
+    borderRadius: 6,
   },
 });
 
@@ -194,7 +201,9 @@ const Info = () => {
           </section>
           <section className={classes.infoContainerRight}>
             <video
-              controls
+              controls={false}
+              autoPlay
+              loop
               muted
               className={classes.customVideo}
               controlsList="nodownload noplaybackrate noremoteplayback"

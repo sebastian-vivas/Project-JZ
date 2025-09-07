@@ -1,3 +1,4 @@
+import { useState, useRef } from "react";
 import { createUseStyles } from "react-jss";
 import boxes from "../images/boxes.svg";
 
@@ -58,24 +59,121 @@ const useStyles = createUseStyles({
     top: 4,
     left: 7,
   },
+  copiedAlert: {
+    fontFamily: "arial",
+    position: "absolute",
+    width: 55,
+    height: 23,
+    backgroundColor: "#1E1E1E",
+    color: "white",
+    textAlign: "center",
+    left: 227,
+    marginTop: 5,
+    fontSize: 12,
+    padding: 4,
+    borderRadius: 3,
+    "@media (min-width: 0px) and (max-width: 652px)": {
+      left: 195,
+    },
+  },
+  arrowUp: {
+    position: "absolute",
+    width: 0,
+    height: 0,
+    borderLeft: "5px solid transparent",
+    borderRight: "5px solid transparent",
+    borderBottom: "5px solid #1E1E1E",
+    left: 250,
+    "@media (min-width: 0px) and (max-width: 652px)": {
+      left: 218,
+    },
+  },
+  "@keyframes fadeIn": {
+    "0%": {
+      opacity: 0,
+    },
+    "100%": {
+      opacity: 1,
+    },
+  },
+  "@keyframes fadeOut": {
+    "0%": {
+      opacity: 1,
+    },
+    "100%": {
+      opacity: 0,
+    },
+  },
+  fadeIn: {
+    opacity: 1,
+    animationName: "$fadeIn",
+    animationIterationCount: 1,
+    animationTimingFunction: "ease-in",
+    animationDuration: "2s",
+  },
+  fadeOut: {
+    opacity: 0,
+    animationName: "$fadeOut",
+    animationIterationCount: 1,
+    animationTimingFunction: "ease-out",
+    animationDuration: "2s",
+  },
 });
 
 const Footer = ({ containerStyles }) => {
   const classes = useStyles();
+  const [copied, setCopied] = useState(false);
+  const inputRef = useRef(null);
+
+  const copyText = async () => {
+    try {
+      await navigator.clipboard.writeText("hello@julissa.zavala.com");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.log(err);
+      if (inputRef.current) {
+        inputRef.current.select();
+        inputRef.current.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      }
+    }
+  };
 
   return (
     <footer className={classes.footerContainer} style={containerStyles}>
       <h4 className={classes.footerHeading}>Let's Connect! :)</h4>
       <section className={classes.footerLinksCopyright}>
         <section>
-          <a className={`${classes.footerItem} ${classes.footerLinkedin}`}>
+          <a
+            href="https://www.linkedin.com/in/julissazavala/"
+            target="_blank"
+            className={`${classes.footerItem} ${classes.footerLinkedin}`}
+          >
             LINKEDIN
           </a>
           <span>/</span>
-          <a className={`${classes.footerItem} ${classes.footerEmail}`}>
+          <a
+            onClick={copyText}
+            className={`${classes.footerItem} ${classes.footerEmail}`}
+          >
             HELLO@JULISSA.ZAVALA.COM
             <img src={boxes} className={classes.boxesImage} />
           </a>
+          {copied && (
+            <>
+              <div
+                className={`${classes.copiedAlert} ${classes.fadeIn} ${classes.fadeOut}`}
+              >
+                Copied!
+              </div>
+              <div
+                className={`${classes.arrowUp} ${classes.fadeIn} ${classes.fadeOut}`}
+              ></div>
+            </>
+          )}
         </section>
         <span className={`${classes.footerItem} ${classes.footerCopyright}`}>
           Copyright © Julissa Zavala 2025
