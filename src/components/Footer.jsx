@@ -50,6 +50,7 @@ const useStyles = createUseStyles({
   },
   footerCopyright: {
     paddingTop: 3,
+    cursor: "text",
     "@media (min-width: 0px) and (max-width: 652px)": {
       paddingTop: 5,
     },
