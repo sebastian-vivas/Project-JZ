@@ -7,6 +7,7 @@ import ceramicSculpture from "../images/ceramic-sculpture.svg";
 import ceramicHandsFeet from "../images/ceramicHandsFeet.mp4";
 import resumeFile from "../images/JulissaZavala_Resume_2024.pdf";
 import { createUseStyles } from "react-jss";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const useStyles = createUseStyles({
   infoContainer: {
@@ -16,7 +17,7 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "Roobert_Latin_Regular",
     fontSize: 14,
     lineHeight: 1.3,
     "@media (min-width: 701px) and (max-width: 1270px)": {
@@ -109,9 +110,6 @@ const useStyles = createUseStyles({
       {
         display: "none !important",
       },
-    "@media (min-width: 0px) and (max-width: 930px)": {
-      // marginLeft: 0,
-    },
     "@media (min-width: 0px) and (max-width: 499px)": {
       width: "100%",
     },
@@ -149,6 +147,7 @@ const useStyles = createUseStyles({
 
 const Info = () => {
   const classes = useStyles();
+  const { width } = useWindowDimensions();
 
   return (
     <>
@@ -205,8 +204,8 @@ const Info = () => {
           </section>
           <section className={classes.infoContainerRight}>
             <video
-              controls={false}
-              autoPlay
+              controls={width < 500}
+              autoPlay={width > 500}
               loop
               muted
               className={classes.customVideo}

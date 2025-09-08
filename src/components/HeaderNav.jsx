@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
     },
   },
   navText: {
-    fontFamily: "univers-condensed-medium",
+    fontFamily: "Roobert_Latin_Regular",
     color: "#1E1E1E",
     fontSize: 14,
     lineHeight: "normal",

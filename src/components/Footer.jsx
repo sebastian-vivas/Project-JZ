@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { createUseStyles } from "react-jss";
 import boxes from "../images/boxes.svg";
+import clsx from "clsx";
 
 const useStyles = createUseStyles({
   footerContainer: {
@@ -16,7 +17,7 @@ const useStyles = createUseStyles({
   },
   footerHeading: {
     fontSize: 14,
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "Roobert_Latin_Regular",
     fontWeight: 300,
     margin: "0 0 15px 0",
     marginBottom: 15,
@@ -33,7 +34,7 @@ const useStyles = createUseStyles({
     },
   },
   footerItem: {
-    fontFamily: "univers-condensed-medium",
+    fontFamily: "Roobert_Latin_Regular",
     fontSize: 12,
     cursor: "pointer",
     textDecoration: "none",
@@ -61,20 +62,20 @@ const useStyles = createUseStyles({
     left: 7,
   },
   copiedAlert: {
-    fontFamily: "arial",
+    fontFamily: "Roobert_Latin_Regular",
     position: "absolute",
     width: 55,
     height: 23,
     backgroundColor: "#1E1E1E",
     color: "white",
     textAlign: "center",
-    left: 227,
+    left: 275,
     marginTop: 5,
     fontSize: 12,
     padding: 4,
     borderRadius: 3,
     "@media (min-width: 0px) and (max-width: 652px)": {
-      left: 195,
+      left: 244,
     },
   },
   arrowUp: {
@@ -84,9 +85,9 @@ const useStyles = createUseStyles({
     borderLeft: "5px solid transparent",
     borderRight: "5px solid transparent",
     borderBottom: "5px solid #1E1E1E",
-    left: 250,
+    left: 299,
     "@media (min-width: 0px) and (max-width: 652px)": {
-      left: 218,
+      left: 267,
     },
   },
   "@keyframes fadeIn": {
@@ -151,14 +152,14 @@ const Footer = ({ containerStyles }) => {
           <a
             href="https://www.linkedin.com/in/julissazavala/"
             target="_blank"
-            className={`${classes.footerItem} ${classes.footerLinkedin}`}
+            className={clsx(classes.footerItem, classes.footerLinkedin)}
           >
             LINKEDIN
           </a>
           <span>/</span>
           <a
             onClick={copyText}
-            className={`${classes.footerItem} ${classes.footerEmail}`}
+            className={clsx(classes.footerItem, classes.footerEmail)}
           >
             HELLO@JULISSA.ZAVALA.COM
             <img src={boxes} className={classes.boxesImage} />
@@ -166,17 +167,25 @@ const Footer = ({ containerStyles }) => {
           {copied && (
             <>
               <div
-                className={`${classes.copiedAlert} ${classes.fadeIn} ${classes.fadeOut}`}
+                className={clsx(
+                  classes.copiedAlert,
+                  classes.fadeIn,
+                  classes.fadeOut
+                )}
               >
                 Copied!
               </div>
               <div
-                className={`${classes.arrowUp} ${classes.fadeIn} ${classes.fadeOut}`}
+                className={clsx(
+                  classes.arrowUp,
+                  classes.fadeIn,
+                  classes.fadeOut
+                )}
               ></div>
             </>
           )}
         </section>
-        <span className={`${classes.footerItem} ${classes.footerCopyright}`}>
+        <span className={clsx(classes.footerItem, classes.footerCopyright)}>
           Copyright © Julissa Zavala 2025
         </span>
       </section>

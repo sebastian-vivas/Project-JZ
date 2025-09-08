@@ -15,12 +15,12 @@ const useStyles = createUseStyles({
     },
   },
   landingHeading: {
-    fontFamily: "univers-condensed-bold",
+    fontFamily: "Roobert_Latin_bold",
     fontSize: 48,
     marginBottom: 24,
   },
   landingSecondaryHeading: {
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "Roobert_Latin_Regular",
     fontWeight: 100,
     fontSize: 14,
     width: 650,
@@ -49,7 +49,7 @@ const useStyles = createUseStyles({
     top: 4,
   },
   selectedWorkText: {
-    fontFamily: "univers-condensed-medium",
+    fontFamily: "Roobert_Latin_Regular",
     fontSize: 14,
     textAlign: "center",
     display: "inline-block",
@@ -109,7 +109,7 @@ const Landing = () => {
           </section>
         </section>
         <section className={classes.caseStudiesContainer}>
-          <CaseStudy route="studentProfile" />
+          <CaseStudy route="dataGrid" />
           <CaseStudy />
         </section>
       </section>
