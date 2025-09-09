@@ -1,26 +1,5 @@
 /* FONTS */
 
-/* @font-face {
-  font-family: 'univers-condensed-bold';
-  src: url('../fonts/universcondensed_bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'univers-condensed-medium';
-  src: url('../fonts/universcondensed_medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'univers-condensed-mediumitalic';
-  src: url('../fonts/universcondensed_mediumitalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-} */
-
 @font-face {
   font-family: 'Roobert_Latin_Bold';
   src: url('../fonts/Roobert-LatinProportionalBold.woff') format('woff');
@@ -41,6 +20,8 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    letter-spacing: 0.01em !important;
+    line-height: 1.5 !important;
 }
 
 body {
@@ -53,6 +34,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .container {
     padding: 48px;
+    padding-bottom: 32px;
     width: 100%;
 }
 

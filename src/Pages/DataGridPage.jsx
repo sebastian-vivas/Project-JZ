@@ -2,11 +2,11 @@ import { createUseStyles } from "react-jss";
 import mockImage from "../images/mockImageLanding.svg";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
-import heroImage from "../images/heroImage.svg";
 import clsx from "clsx";
 import downArrowIcon from "../images/down-arrow-black.svg";
 import dots from "../images/dots.svg";
 import graph from "../images/graph.svg";
+import dataGridHero from "../images/DataGridHero.svg";
 
 const useStyles = createUseStyles({
   caseStudySection: {
@@ -34,13 +34,13 @@ const useStyles = createUseStyles({
     },
   },
   caseStudyImage: {
-    width: "100%",
+    width: "100s",
     "@media (min-width: 0px) and (max-width: 1280px)": {
       width: "clamp(300px, 98%, 608px)",
     },
   },
   caseStudyInfo: {
-    width: "45%",
+    width: "47%",
     height: "auto",
     lineHeight: 1.3,
     "@media (min-width: 0px) and (max-width: 1200px)": {
@@ -74,21 +74,17 @@ const useStyles = createUseStyles({
     marginRight: 32,
   },
   caseStudyContainer: {
-    paddingTop: 24,
-    width: "100%",
+    paddingTop: 48,
   },
   heroImage: {
-    marginLeft: "auto",
-    marginRight: "auto",
     marginBottom: 48,
     display: "block",
-    width: "80%",
+    width: "100%",
   },
   mainHeading: {
     fontFamily: "Roobert_Latin_Bold",
     fontSize: 43,
     textAlign: "left",
-    width: "90%",
     marginBottom: 24,
     "@media (min-width: 0px) and (max-width: 1139px)": {
       width: "100%",
@@ -173,7 +169,7 @@ const DataGrid = () => {
       <section className="container">
         <HeaderNav />
         <section className={classes.caseStudyContainer}>
-          <img src={heroImage} className={classes.heroImage} />
+          <img src={dataGridHero} className={classes.heroImage} />
           <h1 className={classes.mainHeading}>
             The feature users loved to leave: Redesigning the data grid to stop
             spreadsheet exodus
@@ -182,7 +178,7 @@ const DataGrid = () => {
             {" "}
             <span
               className={clsx(classes.caseStudyDetails, classes.bold)}
-              style={{ marginRight: 128 }}
+              style={{ marginRight: 134 }}
             >
               Role
             </span>

@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { createUseStyles } from "react-jss";
-import boxes from "../images/boxes.svg";
 import clsx from "clsx";
 
 const useStyles = createUseStyles({
@@ -8,6 +7,7 @@ const useStyles = createUseStyles({
     borderTop: "1px solid #1E1E1E",
     height: "auto",
     padding: 48,
+    fontSize: 14,
     "@media (min-width: 0px) and (max-width: 652px)": {
       paddingTop: 24,
       paddingBottom: 24,
@@ -16,11 +16,10 @@ const useStyles = createUseStyles({
     },
   },
   footerHeading: {
-    fontSize: 14,
     fontFamily: "Roobert_Latin_Regular",
     fontWeight: 300,
     margin: "0 0 15px 0",
-    marginBottom: 15,
+    marginBottom: 8,
     "@media (min-width: 0px) and (max-width: 652px)": {
       marginBottom: 5,
     },
@@ -35,7 +34,6 @@ const useStyles = createUseStyles({
   },
   footerItem: {
     fontFamily: "Roobert_Latin_Regular",
-    fontSize: 12,
     cursor: "pointer",
     textDecoration: "none",
     color: "#1E1E1E",
@@ -45,12 +43,21 @@ const useStyles = createUseStyles({
   },
   footerLinkedin: {
     marginRight: 8,
+    position: "relative",
+    cursor: "pointer",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "none",
+      "& $footerTextLineThrough": {
+        transform: "translateY(-50%) scaleX(1)",
+      },
+    },
   },
   footerEmail: {
     marginLeft: 8,
+    cursor: "default",
   },
   footerCopyright: {
-    paddingTop: 3,
     cursor: "text",
     "@media (min-width: 0px) and (max-width: 652px)": {
       paddingTop: 5,
@@ -69,13 +76,13 @@ const useStyles = createUseStyles({
     backgroundColor: "#1E1E1E",
     color: "white",
     textAlign: "center",
-    left: 275,
+    left: 178,
     marginTop: 5,
-    fontSize: 12,
-    padding: 4,
+    padding: 2,
     borderRadius: 3,
+    fontSize: 12,
     "@media (min-width: 0px) and (max-width: 652px)": {
-      left: 244,
+      left: 146,
     },
   },
   arrowUp: {
@@ -85,9 +92,9 @@ const useStyles = createUseStyles({
     borderLeft: "5px solid transparent",
     borderRight: "5px solid transparent",
     borderBottom: "5px solid #1E1E1E",
-    left: 299,
+    left: 201,
     "@media (min-width: 0px) and (max-width: 652px)": {
-      left: 267,
+      left: 170,
     },
   },
   "@keyframes fadeIn": {
@@ -111,7 +118,7 @@ const useStyles = createUseStyles({
     animationName: "$fadeIn",
     animationIterationCount: 1,
     animationTimingFunction: "ease-in",
-    animationDuration: "2s",
+    animationDuration: "3s",
   },
   fadeOut: {
     opacity: 0,
@@ -119,6 +126,17 @@ const useStyles = createUseStyles({
     animationIterationCount: 1,
     animationTimingFunction: "ease-out",
     animationDuration: "2s",
+  },
+  footerTextLineThrough: {
+    position: "absolute",
+    width: "100%",
+    height: 1,
+    bottom: -0.5,
+    left: 0,
+    backgroundColor: "#1E1E1E",
+    transform: "translateY(-50%) scaleX(0)",
+    transformOrigin: "left center",
+    transition: "transform 0.15s ease-in-out",
   },
 });
 
@@ -146,7 +164,10 @@ const Footer = ({ containerStyles }) => {
 
   return (
     <footer className={classes.footerContainer} style={containerStyles}>
-      <h4 className={classes.footerHeading}>Let&#8217;s Connect! :)</h4>
+      <section className={classes.footerLinksCopyright}>
+        <h4 className={classes.footerHeading}>Let&#8217;s connect! :)</h4>
+        <h4 className={classes.footerHeading}>Hand coded in React, by me</h4>
+      </section>
       <section className={classes.footerLinksCopyright}>
         <section>
           <a
@@ -155,14 +176,14 @@ const Footer = ({ containerStyles }) => {
             className={clsx(classes.footerItem, classes.footerLinkedin)}
           >
             LINKEDIN
+            <div className={classes.footerTextLineThrough}></div>
           </a>
           <span>/</span>
           <a
             onClick={copyText}
             className={clsx(classes.footerItem, classes.footerEmail)}
           >
-            HELLO@JULISSA.ZAVALA.COM
-            <img src={boxes} className={classes.boxesImage} />
+            hello@julissa.zavala.com
           </a>
           {copied && (
             <>

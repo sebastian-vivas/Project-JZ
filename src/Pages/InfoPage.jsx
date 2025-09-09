@@ -28,6 +28,7 @@ const useStyles = createUseStyles({
   infoContainerLeft: {
     display: "flex",
     flexDirection: "row",
+    justifyContent: "space-between",
     width: "50%",
     "@media (min-width: 701px) and (max-width: 1270px)": {
       width: "80%",
@@ -40,7 +41,7 @@ const useStyles = createUseStyles({
     },
   },
   infoBio: {
-    width: "52%",
+    width: "55%",
     "@media (min-width: 0px) and (max-width: 930px)": {
       width: "100%",
     },
@@ -50,7 +51,7 @@ const useStyles = createUseStyles({
   },
   infoBioDetail: {
     display: "block",
-    marginTop: 10,
+    marginTop: 16,
     "@media (min-width: 0px) and (max-width: 930px)": {
       marginTop: 24,
     },
@@ -80,7 +81,7 @@ const useStyles = createUseStyles({
     width: 264,
     height: 319,
     borderRadius: 6,
-    marginLeft: "8%",
+    marginLeft: "0%",
     "@media (min-width: 931px) and (max-width: 1270px)": {
       marginLeft: "4%",
     },
@@ -160,22 +161,22 @@ const Info = () => {
                 My name is Julissa Zavala and I am currently based in Queens,
                 New York (where I&#8217;m from!).
                 <span className={classes.infoBioDetail}>
-                  I&#8217;m a Product Designer with four years of experience
-                  creating tools for a range of users, from teachers and
-                  guidance counselors to shelter directors, at New Visions for
-                  Public Schools.
+                  I&#8217;ve spent the past four years at New Visions for Public
+                  Schools designing tools for educators and administrators that
+                  help with student tracking and resource management.
                 </span>
                 <span className={classes.infoBioDetail}>
-                  Good design should feel seamless, almost invisible. But the
-                  process to get there isn&#8217;t always straightforward; every
-                  solution comes from conversations, decisions, and countless
-                  iterations. The hidden work behind every great design has
-                  always pulled me in, and that process is what keeps me
-                  learning and growing as a designer. I take pride in the
-                  details, knowing they add up to something meaningful. For me,
-                  design is about creating solutions that make people&#8217;s
-                  lives easier, while also keeping the bigger picture in focus
-                  so the work meets business goals with clarity and purpose.
+                  Good design feels seamless. Getting there involves
+                  conversations, testing, and iterating until something works.
+                  I&#8217;m drawn to that problem-solving process and the
+                  details that make the difference between functional and great.
+                </span>
+                <span className={classes.infoBioDetail}>
+                  I design with the belief that technology should adapt to how
+                  people work, not the other way around. I start by figuring out
+                  where current tools fall short, then design solutions that
+                  feel straightforward to use while driving the outcomes the
+                  business needs.
                 </span>
               </p>
               <p className={classes.infoBioQuestion}>

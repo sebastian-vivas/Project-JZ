@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 import rightArrowIcon from "../images/right-arrow-black.svg";
-import mockImage from "../images/mockImageLanding.svg";
 
 const useStyles = createUseStyles({
   caseStudyContainer: {
-    paddingTop: 53,
-    paddingBottom: 53,
-    paddingLeft: "4%",
-    paddingRight: "4%",
+    paddingTop: 48,
+    paddingBottom: 48,
     height: "auto",
     width: "100%",
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     alignItems: "center",
+    justifyContent: "space-between",
     marginTop: 0,
     marginBottom: 48,
     marginRight: 0,
@@ -26,17 +24,17 @@ const useStyles = createUseStyles({
     },
   },
   caseStudyImage: {
-    width: "46%",
+    width: "47%",
+    borderRadius: 4,
     "@media (min-width: 0px) and (max-width: 1280px)": {
       width: "clamp(300px, 98%, 608px)",
     },
   },
   caseStudyInfo: {
-    width: "46%",
+    width: "47%",
     height: "auto",
     paddingTop: 24,
     paddingBottom: 24,
-    marginLeft: "7%",
     "@media (min-width: 0px) and (max-width: 1200px)": {
       paddingTop: 38,
       paddingBottom: 48,
@@ -51,13 +49,13 @@ const useStyles = createUseStyles({
     fontFamily: "Roobert_Latin_Bold",
     fontSize: 22,
     fontWeight: 800,
-    marginBottom: 0,
+    marginBottom: 4,
     "@media (min-width: 701px) and (max-width: 1200px)": {},
   },
   caseStudyDescription: {
     fontFamily: "Roobert_Latin_Regular",
     fontSize: 14,
-    marginTop: 10,
+    marginTop: 16,
     lineHeight: 1.3,
   },
   readMoreText: {
@@ -68,9 +66,9 @@ const useStyles = createUseStyles({
   },
   readMoreTextLineThrough: {
     position: "absolute",
-    width: 90,
+    width: 68.5,
     height: 1,
-    bottom: 12,
+    bottom: 10.5,
     left: 0,
     backgroundColor: "#1E1E1E",
     transform: "translateY(-50%) scaleX(0)",
@@ -83,7 +81,7 @@ const useStyles = createUseStyles({
     fontFamily: "Roobert_Latin_Regular",
     fontSize: 12,
     cursor: "pointer",
-    top: 36,
+    top: 18,
     textDecoration: "none",
     display: "flex",
     flexDirection: "row",
@@ -91,7 +89,7 @@ const useStyles = createUseStyles({
     marginTop: 25,
     "&:hover $readMoreTextLineThrough": {
       transform: "translateY(-50%) scaleX(1)",
-      bottom: 12,
+      bottom: 10.5,
     },
     "@media (min-width: 0px) and (max-width: 499px)": {
       marginTop: 0,
@@ -100,38 +98,29 @@ const useStyles = createUseStyles({
   rightArrow: {
     marginLeft: 7,
     position: "relative",
-    bottom: 6,
+    bottom: 5,
     display: "block",
   },
   caseStudyCompanyName: {
-    color: "#7B7B7B",
+    color: "#767676",
     fontFamily: "Roobert_Latin_Regular",
-    lineHeight: 2.3,
     fontSize: 12,
     fontWeight: 100,
   },
 });
 
-const CaseStudy = ({ route, containerStyles }) => {
+const CaseStudy = ({ title, description, route, image }) => {
   const classes = useStyles();
 
   return (
-    <section className={classes.caseStudyContainer} style={containerStyles}>
-      <img src={mockImage} className={classes.caseStudyImage} />
+    <section className={classes.caseStudyContainer}>
+      <img src={image} className={classes.caseStudyImage} />
       <section className={classes.caseStudyInfo}>
-        <p className={classes.caseStudyTitle}>
-          Introducing a Gradebook feature to provide real-time grade trends for
-          over 77,000 teachers.
-        </p>
+        <p className={classes.caseStudyTitle}>{title}</p>
         <span className={classes.caseStudyCompanyName}>
-          NEW VISIONS FOR PUBLIC SCHOOLS
+          New Visions For Public Schools
         </span>
-        <p className={classes.caseStudyDescription}>
-          I collaborated with leadership to strengthen our partnership with the
-          NYC DOE by developing a proposal to integrate gradebook data into the
-          Portal, enabling teachers and school leaders to track student progress
-          and coordinate support for those in need of intervention.
-        </p>
+        <p className={classes.caseStudyDescription}>{description}</p>
         <Link to={`/${route}`} className={classes.caseStudyReadMore}>
           <div className={classes.readMoreTextText}>READ MORE</div>
           <div className={classes.readMoreTextLineThrough}></div>

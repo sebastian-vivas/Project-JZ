@@ -27,7 +27,7 @@ const useStyles = createUseStyles({
     position: "absolute",
     width: "100%",
     height: 1,
-    bottom: "5%",
+    bottom: 1,
     left: 0,
     backgroundColor: "#1E1E1E",
     transform: "translateY(-50%) scaleX(0)",

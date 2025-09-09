@@ -4,14 +4,23 @@ import Footer from "../components/Footer";
 import downArrowIcon from "../images/down-arrow-black.svg";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { createUseStyles } from "react-jss";
+import clsx from "clsx";
+import mockImage from "../images/mockImageLanding.svg";
+import landingPagePic from "../images/landingpagepic.svg";
 
 const useStyles = createUseStyles({
   welcomeSection: {
     width: "100%",
     paddingTop: 200,
     marginBottom: 0,
-    "@media (min-width: 0px) and (max-width: 499px)": {
-      paddingTop: 125,
+    "@media (min-width: 501px) and (max-width: 644px)": {
+      paddingTop: 180,
+    },
+    "@media (min-width: 376px) and (max-width: 500px)": {
+      paddingTop: 70,
+    },
+    "@media (min-width: 0px) and (max-width: 390px)": {
+      paddingTop: 50,
     },
   },
   landingHeading: {
@@ -24,19 +33,11 @@ const useStyles = createUseStyles({
     fontWeight: 100,
     fontSize: 14,
     width: 650,
-    lineHeight: 1.2,
-    "@media (min-width: 500px) and (max-width: 700px)": {
-      width: 475,
-    },
-    "@media (min-width: 0px) and (max-width: 500px)": {
+    "@media (min-width: 0px) and (max-width: 700px)": {
       width: "100%",
     },
   },
-  companyName: {
-    color: "#B24825",
-  },
   secondaryHeadingLineBreak: {
-    display: "inline-block",
     marginTop: 18,
   },
   selectedWork: {
@@ -60,10 +61,13 @@ const useStyles = createUseStyles({
     fontWeight: 100,
   },
   caseStudiesContainer: {
-    paddingTop: 48,
+    paddingTop: 29,
     "@media (min-width: 701px) and (max-width: 1200px)": {
       paddingTop: 96,
     },
+  },
+  companyName: {
+    color: "#767676",
   },
 });
 
@@ -71,27 +75,54 @@ const Landing = () => {
   const classes = useStyles();
   const { height } = useWindowDimensions();
 
+  const caseStudies = [
+    {
+      title:
+        "From data silos to quick insights: designing a student overview panel",
+      description:
+        "Every stakeholder team wanted their metrics included in the new student overview panel, creating a classic design challenge. Through user research and strategic collaboration, I turned competing priorities into a focused solution that educators actually wanted to use. The technical constraints led to innovations that improved performance across the entire platform.",
+      image: mockImage,
+      route: "studentProfile",
+    },
+    {
+      title:
+        "The feature users loved to leave: Redesigning the data grid to stop the spreadsheet exodus",
+
+      description:
+        "The Portal's most-used feature was driving away 10,000+ users who rebuilt grid setups daily before abandoning the platform for static spreadsheets. Through user research and stakeholder alignment, I designed a template system that balanced technical constraints with user needs. The solution restored engagement with live data and became foundational to how NYC educators interact with student information.",
+      image: landingPagePic,
+      route: "dataGrid",
+    },
+  ];
+
   return (
     <>
       <section className="container">
         <HeaderNav />
         <section className={classes.welcomeSection}>
           <h1 className={classes.landingHeading}>Hi, my name is Julissa.</h1>
-          <h2 className={classes.landingSecondaryHeading}>
+          <p className={classes.landingSecondaryHeading}>
             Currently working as a Product Designer II at{" "}
             <span className={classes.companyName}>
               New Visions for Public Schools
             </span>
-            , designing a school management application for educators across
-            NYC.
-            <span className={classes.secondaryHeadingLineBreak}>
-              Also an avid plant grower, amateur ceramicist, and Peruvian food
-              enthusiast
-            </span>
-          </h2>
+            , designing a district-wide SaaS application that serves NYC's
+            entire public school system, including 1,700+ schools and over 1
+            million students.
+          </p>
+          <p
+            className={clsx(
+              classes.landingSecondaryHeading,
+              classes.secondaryHeadingLineBreak
+            )}
+          >
+            Experience in web-based, enterprise SaaS applications, solving
+            complex data visualization challenges, improving user adoption
+            rates, and designing for multi-role educational platforms.
+          </p>
           <section
             className={classes.selectedWork}
-            style={{ height: height - 440 }}
+            style={{ height: height - 500 }}
           >
             <section>
               <img
@@ -99,7 +130,7 @@ const Landing = () => {
                 alt="Black arrow pointing down"
                 className={classes.downArrow}
               />
-              <h3 className={classes.selectedWorkText}>SELECTED WORK</h3>
+              <h3 className={classes.selectedWorkText}>Selected work</h3>
               <img
                 src={downArrowIcon}
                 alt="Black arrow pointing down"
@@ -109,8 +140,15 @@ const Landing = () => {
           </section>
         </section>
         <section className={classes.caseStudiesContainer}>
-          <CaseStudy route="dataGrid" />
-          <CaseStudy />
+          {caseStudies.map((caseStudy) => (
+            <CaseStudy
+              key={caseStudy.route}
+              title={caseStudy.title}
+              description={caseStudy.description}
+              image={caseStudy.image}
+              route={caseStudy.route}
+            />
+          ))}
         </section>
       </section>
       <Footer />
