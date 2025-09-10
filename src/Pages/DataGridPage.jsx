@@ -7,6 +7,11 @@ import downArrowIcon from "../images/down-arrow-black.svg";
 import dots from "../images/dots.svg";
 import graph from "../images/graph.svg";
 import dataGridHero from "../images/DataGridHero.svg";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import defaultViews from "../images/defaultView.svg";
+import customViews from "../images/customViews.svg";
+import templateViews from "../images/templateViews.svg";
 
 const useStyles = createUseStyles({
   caseStudySection: {
@@ -34,10 +39,10 @@ const useStyles = createUseStyles({
     },
   },
   caseStudyImage: {
-    width: "100s",
-    "@media (min-width: 0px) and (max-width: 1280px)": {
-      width: "clamp(300px, 98%, 608px)",
-    },
+    width: "100%",
+    // "@media (min-width: 0px) and (max-width: 1280px)": {
+    //   width: "clamp(300px, 98%, 608px)",
+    // },
   },
   caseStudyInfo: {
     width: "47%",
@@ -133,7 +138,7 @@ const useStyles = createUseStyles({
     marginRight: "auto",
   },
   twoImageContainer: {
-    width: "50%",
+    width: "47%",
     display: "flex",
     justifyContent: "space-between",
   },
@@ -148,6 +153,7 @@ const useStyles = createUseStyles({
     borderBottom: "none",
     paddingTop: 48,
     paddingBottom: 48,
+    flexWrap: "wrap",
   },
   quote: {
     fontFamily: "Roobert_Latin_Regular",
@@ -158,6 +164,7 @@ const useStyles = createUseStyles({
   },
   graphImage: {
     marginBottom: 80,
+    width: "100%",
   },
 });
 
@@ -234,8 +241,10 @@ const DataGrid = () => {
                 alignment, and design strategy.
               </p>
             </section>
-            <div style={{ width: "45%" }}>
-              <img src={mockImage} className={classes.caseStudyImage} />
+            <div style={{ width: "47%" }}>
+              <Zoom>
+                <img src={mockImage} className={classes.caseStudyImage} />
+              </Zoom>
               <p className={classes.caption}>
                 Before and after of the student profile page
               </p>
@@ -282,8 +291,18 @@ const DataGrid = () => {
               </p>
             </section>
             <div className={classes.twoImageContainer}>
-              <img src={mockImage} style={{ width: "48%" }} />
-              <img src={mockImage} style={{ width: "48%" }} />
+              <Zoom>
+                <img
+                  src={mockImage}
+                  style={{ width: "100%", paddingRight: "5%" }}
+                />
+              </Zoom>
+              <Zoom>
+                <img
+                  src={mockImage}
+                  style={{ width: "100%", paddingLeft: "5%" }}
+                />
+              </Zoom>
             </div>
           </section>
           <img src={dots} className={classes.dots} />
@@ -316,7 +335,7 @@ const DataGrid = () => {
                 </li>
               </ol>
             </section>
-            <div style={{ width: "45%" }}>
+            <div style={{ width: "47%" }}>
               <p className={classes.quote}>
                 “I&#8217;d spend 20 minutes setting up my grid, leave to help a
                 student, then come back to find the system logged me out and all
@@ -327,7 +346,9 @@ const DataGrid = () => {
               </p>
             </div>
           </section>
-          <img src={graph} className={classes.graphImage} />
+          <Zoom>
+            <img src={graph} className={classes.graphImage} />
+          </Zoom>
           <img src={dots} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
@@ -351,17 +372,57 @@ const DataGrid = () => {
                 essential use cases.
               </p>
             </section>
-            <img src={mockImage} />
+            <Zoom>
+              <img src={mockImage} />
+            </Zoom>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "100%",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "Roobert_Latin_Regular",
+                    fontSize: 14,
+                    marginTop: 32,
+                    marginBottom: 32,
+                  }}
+                >
+                  Three view types emerged:
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
+                  {" "}
+                  <img src={templateViews} style={{ width: "31.5%" }} />
+                  <img src={customViews} style={{ width: "31.5%" }} />
+                  <img src={defaultViews} style={{ width: "31.5%" }} />
+                </div>
+              </div>
+            </div>
           </section>
-          <img src={graph} className={classes.graphImage} />
           <img src={dots} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
-                <span className={classes.number}>04</span>Designing with
-                constraints
+                <span className={classes.number}>04</span>Core interface design
               </p>
               <p className={classes.description}>
                 The interface centered on an intuitive split-button save
@@ -384,7 +445,9 @@ const DataGrid = () => {
                 discovering the secondary option.
               </p>
             </section>
-            <img src={mockImage} />
+            <Zoom>
+              <img src={mockImage} />
+            </Zoom>
           </section>
           <img src={dots} className={classes.dots} />
           <section
@@ -409,7 +472,9 @@ const DataGrid = () => {
                 setup process.
               </p>
             </section>
-            <img src={mockImage} />
+            <Zoom>
+              <img src={mockImage} />
+            </Zoom>
           </section>
           <img src={dots} className={classes.dots} />
           <section
@@ -451,7 +516,7 @@ const DataGrid = () => {
                 prioritize for a future release.
               </p>
             </section>
-            <div style={{ width: "45%" }}>
+            <div style={{ width: "47%" }}>
               <p className={classes.quote}>
                 “Before, I&#8217;d spend the first half hour of my day
                 rebuilding my graduation tracking view. Now I just switch to my

@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "react": "^19.0.0",
+    "react-before-after-slider-component": "^1.1.8",
     "react-dom": "^19.0.0",
+    "react-medium-image-zoom": "^5.3.0",
     "react-router-dom": "^7.4.0"
   },
   "devDependencies": {
