@@ -1,17 +1,25 @@
 import { createUseStyles } from "react-jss";
-import mockImage from "../images/mockImageLanding.svg";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
 import clsx from "clsx";
 import downArrowIcon from "../images/down-arrow-black.svg";
 import dots from "../images/dots.svg";
-import graph from "../images/graph.svg";
+import graph from "../images/3_user_journey.svg";
 import dataGridHero from "../images/DataGridHero.svg";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import defaultViews from "../images/defaultView.svg";
 import customViews from "../images/customViews.svg";
+import beforeImageSVG from "../images/1_Before.svg";
+import afterImageSVG from "../images/1_after.svg";
 import templateViews from "../images/templateViews.svg";
+import ReactBeforeSliderComponent from "react-before-after-slider-component";
+import "react-before-after-slider-component/dist/build.css";
+import viewDiagram from "../images/4_viewDiagram.svg";
+import workFlow from "../images/7_workflow.svg";
+import gif from "../images/6_savebutton-ezgif.com-resize.gif";
+import saveButton from "../images/6_savebutton.mp4";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const useStyles = createUseStyles({
   caseStudySection: {
@@ -170,6 +178,19 @@ const useStyles = createUseStyles({
 
 const DataGrid = () => {
   const classes = useStyles();
+  const { width } = useWindowDimensions();
+
+  const beforeImage = {
+    imageUrl: beforeImageSVG,
+  };
+
+  const afterImage = {
+    imageUrl: afterImageSVG,
+  };
+
+  const delimiterIconStyles = {
+    border: "2px solid #767676",
+  };
 
   return (
     <>
@@ -242,9 +263,11 @@ const DataGrid = () => {
               </p>
             </section>
             <div style={{ width: "47%" }}>
-              <Zoom>
-                <img src={mockImage} className={classes.caseStudyImage} />
-              </Zoom>
+              <ReactBeforeSliderComponent
+                firstImage={afterImage}
+                secondImage={beforeImage}
+                delimiterIconStyles={delimiterIconStyles}
+              />
               <p className={classes.caption}>
                 Before and after of the student profile page
               </p>
@@ -290,18 +313,9 @@ const DataGrid = () => {
                 information for static snapshots.
               </p>
             </section>
-            <div className={classes.twoImageContainer}>
+            <div style={{ width: "47%" }}>
               <Zoom>
-                <img
-                  src={mockImage}
-                  style={{ width: "100%", paddingRight: "5%" }}
-                />
-              </Zoom>
-              <Zoom>
-                <img
-                  src={mockImage}
-                  style={{ width: "100%", paddingLeft: "5%" }}
-                />
+                <img src={beforeImageSVG} style={{ width: "100%" }} />
               </Zoom>
             </div>
           </section>
@@ -372,9 +386,12 @@ const DataGrid = () => {
                 essential use cases.
               </p>
             </section>
-            <Zoom>
-              <img src={mockImage} />
-            </Zoom>
+            <div style={{ width: "47%" }}>
+              {" "}
+              <Zoom>
+                <img style={{ width: "100%" }} src={viewDiagram} />
+              </Zoom>
+            </div>
 
             <div
               style={{
@@ -445,9 +462,22 @@ const DataGrid = () => {
                 discovering the secondary option.
               </p>
             </section>
-            <Zoom>
-              <img src={mockImage} />
-            </Zoom>
+            {width >= 500 && (
+              <video
+                controls={false}
+                autoPlay
+                loop
+                muted
+                className={classes.customVideo}
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                disablePictureInPicture
+                width="47%"
+              >
+                <source src={saveButton} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+            {width <= 501 && <img src={gif} />}
           </section>
           <img src={dots} className={classes.dots} />
           <section
@@ -472,9 +502,12 @@ const DataGrid = () => {
                 setup process.
               </p>
             </section>
-            <Zoom>
-              <img src={mockImage} />
-            </Zoom>
+            <div style={{ width: "47%" }}>
+              {" "}
+              <Zoom>
+                <img style={{ width: "100%" }} src={workFlow} />
+              </Zoom>
+            </div>
           </section>
           <img src={dots} className={classes.dots} />
           <section
@@ -552,6 +585,12 @@ const DataGrid = () => {
                 design decisions.
               </p>
             </section>
+            <div style={{ width: "47%" }}>
+              {" "}
+              <Zoom>
+                <img style={{ width: "100%" }} src={afterImageSVG} />
+              </Zoom>
+            </div>
           </section>
           <img src={dots} className={classes.dots} />
           <section

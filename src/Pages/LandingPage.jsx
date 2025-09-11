@@ -6,7 +6,7 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 import { createUseStyles } from "react-jss";
 import clsx from "clsx";
 import mockImage from "../images/mockImageLanding.svg";
-import landingPagePic from "../images/landingpagepic.svg";
+import dataDrigLandingImage from "../images/dataDrigLandingImage.svg";
 
 const useStyles = createUseStyles({
   welcomeSection: {
@@ -90,7 +90,7 @@ const Landing = () => {
 
       description:
         "The Portal's most-used feature was driving away 10,000+ users who rebuilt grid setups daily before abandoning the platform for static spreadsheets. Through user research and stakeholder alignment, I designed a template system that balanced technical constraints with user needs. The solution restored engagement with live data and became foundational to how NYC educators interact with student information.",
-      image: landingPagePic,
+      image: dataDrigLandingImage,
       route: "dataGrid",
     },
   ];
