@@ -5,8 +5,7 @@ import downArrowIcon from "../images/down-arrow-black.svg";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { createUseStyles } from "react-jss";
 import clsx from "clsx";
-import mockImage from "../images/mockImageLanding.svg";
-import dataDrigLandingImage from "../images/dataDrigLandingImage.svg";
+import dataGridLandingImage from "../images/dataDrigLandingImage.svg";
 
 const useStyles = createUseStyles({
   welcomeSection: {
@@ -81,7 +80,7 @@ const Landing = () => {
         "From data silos to quick insights: designing a student overview panel",
       description:
         "Every stakeholder team wanted their metrics included in the new student overview panel, creating a classic design challenge. Through user research and strategic collaboration, I turned competing priorities into a focused solution that educators actually wanted to use. The technical constraints led to innovations that improved performance across the entire platform.",
-      image: mockImage,
+      image: dataGridLandingImage,
       route: "studentProfile",
     },
     {
@@ -90,7 +89,7 @@ const Landing = () => {
 
       description:
         "The Portal's most-used feature was driving away 10,000+ users who rebuilt grid setups daily before abandoning the platform for static spreadsheets. Through user research and stakeholder alignment, I designed a template system that balanced technical constraints with user needs. The solution restored engagement with live data and became foundational to how NYC educators interact with student information.",
-      image: dataDrigLandingImage,
+      image: dataGridLandingImage,
       route: "dataGrid",
     },
   ];
