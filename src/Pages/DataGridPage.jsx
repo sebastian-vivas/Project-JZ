@@ -19,7 +19,11 @@ import viewDiagram from "../images/4_viewDiagram.svg";
 import workFlow from "../images/7_workflow.svg";
 import gif from "../images/6_savebutton-ezgif.com-resize.gif";
 import saveButton from "../images/6_savebutton.mp4";
+import sideBar from "../images/8_sidebar.mp4";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+import line from "../images/line.svg";
 
 const useStyles = createUseStyles({
   caseStudySection: {
@@ -44,26 +48,28 @@ const useStyles = createUseStyles({
       flexDirection: "column",
       justifyContent: "center",
       paddingTop: 48,
+      marginTop: 32,
+      marginBottom: 32,
     },
   },
   caseStudyImage: {
     width: "100%",
-    // "@media (min-width: 0px) and (max-width: 1280px)": {
-    //   width: "clamp(300px, 98%, 608px)",
-    // },
+  },
+  caseStudyImageContainer: {
+    width: "47%",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      width: "100%",
+    },
   },
   caseStudyInfo: {
     width: "47%",
     height: "auto",
     lineHeight: 1.3,
     "@media (min-width: 0px) and (max-width: 1200px)": {
-      paddingTop: 38,
-      paddingBottom: 48,
+      paddingTop: 0,
+      paddingBottom: 32,
       marginLeft: 0,
-      width: "clamp(300px, 93%, 750px)",
-    },
-    "@media (min-width: 0px) and (max-width: 499px)": {
-      paddingTop: 24,
+      width: "100%",
     },
   },
   title: {
@@ -102,9 +108,12 @@ const useStyles = createUseStyles({
     "@media (min-width: 0px) and (max-width: 1139px)": {
       width: "100%",
     },
+    "@media (min-width: 0px) and (max-width: 550px)": {
+      fontSize: 20,
+    },
   },
   bold: {
-    fontWeight: "bold",
+    fontFamily: "Roobert_Latin_Bold",
   },
   caption: {
     fontFamily: "Roobert_Latin_Regular",
@@ -117,6 +126,9 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "flex-end",
     marginBottom: 48,
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      marginBottom: 0,
+    },
   },
   downArrow: {
     position: "relative",
@@ -155,6 +167,12 @@ const useStyles = createUseStyles({
     borderBottom: "none",
     paddingTop: 63,
     paddingBottom: 63,
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      paddingTop: 0,
+      paddingBottom: 0,
+      marginTop: 32,
+      marginBottom: 32,
+    },
   },
   ohTwoStyles: {
     borderTop: "none",
@@ -162,6 +180,10 @@ const useStyles = createUseStyles({
     paddingTop: 48,
     paddingBottom: 48,
     flexWrap: "wrap",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      paddingBottom: 0,
+      paddingTop: 0,
+    },
   },
   quote: {
     fontFamily: "Roobert_Latin_Regular",
@@ -169,10 +191,59 @@ const useStyles = createUseStyles({
     fontWeight: "bold",
     color: "#05AA82",
     lineHeight: 1.5,
+    "@media (min-width: 0px) and (max-width: 550px)": {
+      fontSize: 20,
+    },
+  },
+  quoteContainer: {
+    width: "47%",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      width: "100%",
+    },
   },
   graphImage: {
     marginBottom: 80,
     width: "100%",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      marginBottom: 32,
+    },
+  },
+  tldr: {
+    paddingTop: 72,
+    paddingBottom: 72,
+    paddingLeft: 0,
+    paddingRight: 0,
+    height: "auto",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 48,
+    marginBottom: 48,
+    marginRight: 0,
+    marginLeft: 0,
+    borderTop: "1px solid #767676",
+    borderBottom: "1px solid #767676",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      padding: 0,
+      flexDirection: "column-reverse",
+      justifyContent: "center",
+      paddingTop: 32,
+      marginTop: 32,
+      marginBottom: 32,
+    },
+  },
+  customVideo: {
+    width: "47%",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      width: "100%",
+    },
+  },
+  zoomBackground: {
+    '& [data-rmiz-modal-overlay="visible"]': {
+      backgroundColor: "#1E1E1E !important",
+    },
   },
 });
 
@@ -188,9 +259,17 @@ const DataGrid = () => {
     imageUrl: afterImageSVG,
   };
 
-  const delimiterIconStyles = {
-    border: "2px solid #767676",
-  };
+  const images = [
+    {
+      original: templateViews,
+    },
+    {
+      original: customViews,
+    },
+    {
+      original: defaultViews,
+    },
+  ];
 
   return (
     <>
@@ -230,7 +309,7 @@ const DataGrid = () => {
               Figma, miro, Mixpanel
             </span>
           </div>
-          <section className={classes.caseStudySection}>
+          <section className={classes.tldr}>
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>TL;DR</p>
               <p className={classes.description}>
@@ -262,13 +341,17 @@ const DataGrid = () => {
                 alignment, and design strategy.
               </p>
             </section>
-            <div style={{ width: "47%" }}>
+            <div className={classes.caseStudyImageContainer}>
               <ReactBeforeSliderComponent
                 firstImage={afterImage}
                 secondImage={beforeImage}
-                delimiterIconStyles={delimiterIconStyles}
+                className={classes.delimeterContainer}
+                delimiterColor="#05AA82"
               />
-              <p className={classes.caption}>
+              <p
+                className={classes.caption}
+                style={{ paddingBottom: width <= 1200 ? 16 : null }}
+              >
                 Before and after of the student profile page
               </p>
             </div>
@@ -313,13 +396,13 @@ const DataGrid = () => {
                 information for static snapshots.
               </p>
             </section>
-            <div style={{ width: "47%" }}>
-              <Zoom>
-                <img src={beforeImageSVG} style={{ width: "100%" }} />
+            <div className={classes.caseStudyImageContainer}>
+              <Zoom classDialog={classes.zoomBackground}>
+                <img src={beforeImageSVG} width="100%" />
               </Zoom>
             </div>
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
@@ -339,7 +422,14 @@ const DataGrid = () => {
                 I discovered that session timeouts were just the final straw in
                 a much larger workflow problem.
               </p>
-              <ol className={classes.description} style={{ padding: 16 }}>
+              <ol
+                className={classes.description}
+                style={
+                  width <= 1200
+                    ? { paddingLeft: 20, marginBottom: 0 }
+                    : { padding: 16, marginBottom: 0 }
+                }
+              >
                 <li>
                   927-column cognitive overload forcing lengthy daily setup
                 </li>
@@ -349,7 +439,7 @@ const DataGrid = () => {
                 </li>
               </ol>
             </section>
-            <div style={{ width: "47%" }}>
+            <div className={classes.quoteContainer}>
               <p className={classes.quote}>
                 “I&#8217;d spend 20 minutes setting up my grid, leave to help a
                 student, then come back to find the system logged me out and all
@@ -360,10 +450,10 @@ const DataGrid = () => {
               </p>
             </div>
           </section>
-          <Zoom>
-            <img src={graph} className={classes.graphImage} />
+          <Zoom classDialog={clsx(classes.zoomBackground)}>
+            <img className={classes.graphImage} src={graph} />
           </Zoom>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
@@ -386,13 +476,12 @@ const DataGrid = () => {
                 essential use cases.
               </p>
             </section>
-            <div style={{ width: "47%" }}>
+            <div className={classes.caseStudyImageContainer}>
               {" "}
-              <Zoom>
-                <img style={{ width: "100%" }} src={viewDiagram} />
+              <Zoom classDialog={classes.zoomBackground}>
+                <img src={viewDiagram} width="100%" />
               </Zoom>
             </div>
-
             <div
               style={{
                 display: "flex",
@@ -426,14 +515,27 @@ const DataGrid = () => {
                   }}
                 >
                   {" "}
-                  <img src={templateViews} style={{ width: "31.5%" }} />
-                  <img src={customViews} style={{ width: "31.5%" }} />
-                  <img src={defaultViews} style={{ width: "31.5%" }} />
+                  {width <= 550 && (
+                    <ImageGallery
+                      showFullscreenButton={false}
+                      showPlayButton={false}
+                      items={images}
+                      showNav={false}
+                      showBullets={true}
+                    />
+                  )}
+                  {width >= 551 && (
+                    <>
+                      <img src={templateViews} style={{ width: "31.5%" }} />
+                      <img src={customViews} style={{ width: "31.5%" }} />
+                      <img src={defaultViews} style={{ width: "31.5%" }} />
+                    </>
+                  )}
                 </div>
               </div>
             </div>
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
@@ -462,7 +564,7 @@ const DataGrid = () => {
                 discovering the secondary option.
               </p>
             </section>
-            {width >= 500 && (
+            {width >= 551 && (
               <video
                 controls={false}
                 autoPlay
@@ -471,15 +573,14 @@ const DataGrid = () => {
                 className={classes.customVideo}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
-                width="47%"
               >
                 <source src={saveButton} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             )}
-            {width <= 501 && <img src={gif} />}
+            {width <= 550 && <img width="100%" src={gif} />}
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
@@ -502,14 +603,14 @@ const DataGrid = () => {
                 setup process.
               </p>
             </section>
-            <div style={{ width: "47%" }}>
+            <div className={classes.caseStudyImageContainer}>
               {" "}
-              <Zoom>
-                <img style={{ width: "100%" }} src={workFlow} />
+              <Zoom classDialog={classes.zoomBackground}>
+                <img src={workFlow} width="100%" />
               </Zoom>
             </div>
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
@@ -522,7 +623,7 @@ const DataGrid = () => {
               </p>
               <ul
                 className={classes.description}
-                style={{ padding: 16, width: 620 }}
+                style={{ padding: 16, width: "100%" }}
               >
                 <li>
                   80% reduction in support tickets about session timeouts and
@@ -549,7 +650,7 @@ const DataGrid = () => {
                 prioritize for a future release.
               </p>
             </section>
-            <div style={{ width: "47%" }}>
+            <div className={classes.quoteContainer}>
               <p className={classes.quote}>
                 “Before, I&#8217;d spend the first half hour of my day
                 rebuilding my graduation tracking view. Now I just switch to my
@@ -561,7 +662,7 @@ const DataGrid = () => {
               </p>
             </div>
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
@@ -584,19 +685,31 @@ const DataGrid = () => {
                 provided. Sometimes technical constraints push you toward better
                 design decisions.
               </p>
-            </section>
-            <div style={{ width: "47%" }}>
-              {" "}
-              <Zoom>
-                <img style={{ width: "100%" }} src={afterImageSVG} />
-              </Zoom>
-            </div>
+            </section>{" "}
+            {width >= 551 && (
+              <video
+                controls={false}
+                autoPlay
+                loop
+                muted
+                className={classes.customVideo}
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                disablePictureInPicture
+              >
+                <source src={sideBar} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+            {width <= 550 && <img width="100%" src={gif} />}
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
-            <section className={classes.caseStudyInfo}>
+            <section
+              className={classes.caseStudyInfo}
+              style={{ paddingBottom: width <= 1200 && 0 }}
+            >
               <p className={classes.title}>
                 <span className={classes.number}>08</span>What I&#8217;d do
                 differently
@@ -611,7 +724,6 @@ const DataGrid = () => {
               </p>
             </section>
           </section>
-          {/* add new code here */}
         </section>
       </section>
       <Footer />
