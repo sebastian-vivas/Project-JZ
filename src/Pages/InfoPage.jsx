@@ -76,6 +76,7 @@ const useStyles = createUseStyles({
     position: "relative",
     top: 3,
     right: 2,
+    width: 16,
   },
   infoImage: {
     width: 264,
