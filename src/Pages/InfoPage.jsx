@@ -71,6 +71,9 @@ const useStyles = createUseStyles({
   resumePdf: {
     color: "#1E1E1E",
     textDecoration: "none",
+    "&:hover": {
+      color: "#767676",
+    },
   },
   diagonalArrowUp: {
     position: "relative",

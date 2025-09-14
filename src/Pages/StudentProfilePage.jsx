@@ -4,22 +4,20 @@ import Footer from "../components/Footer";
 import clsx from "clsx";
 import downArrowIcon from "../images/down-arrow-black.svg";
 import dots from "../images/dots.svg";
-import graph from "../images/3_user_journey.svg";
 import dataGridHero from "../images/DataGridHero.svg";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import defaultViews from "../images/defaultView.svg";
-import customViews from "../images/customViews.svg";
 import beforeImageSVG from "../images/1_Before.svg";
 import afterImageSVG from "../images/1_after.svg";
 import templateViews from "../images/templateViews.svg";
 import ReactBeforeSliderComponent from "react-before-after-slider-component";
 import "react-before-after-slider-component/dist/build.css";
 import viewDiagram from "../images/4_viewDiagram.svg";
-import workFlow from "../images/7_workflow.svg";
 import gif from "../images/6_savebutton-ezgif.com-resize.gif";
 import saveButton from "../images/6_savebutton.mp4";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import "react-image-gallery/styles/css/image-gallery.css";
+import line from "../images/line.svg";
 
 const useStyles = createUseStyles({
   caseStudySection: {
@@ -33,8 +31,8 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 48,
-    marginBottom: 48,
+    marginTop: 40,
+    marginBottom: 40,
     marginRight: 0,
     marginLeft: 0,
     borderTop: "1px solid #767676",
@@ -44,26 +42,28 @@ const useStyles = createUseStyles({
       flexDirection: "column",
       justifyContent: "center",
       paddingTop: 48,
+      marginTop: 32,
+      marginBottom: 32,
     },
   },
   caseStudyImage: {
     width: "100%",
-    // "@media (min-width: 0px) and (max-width: 1280px)": {
-    //   width: "clamp(300px, 98%, 608px)",
-    // },
+  },
+  caseStudyImageContainer: {
+    width: "47%",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      width: "100%",
+    },
   },
   caseStudyInfo: {
     width: "47%",
     height: "auto",
     lineHeight: 1.3,
     "@media (min-width: 0px) and (max-width: 1200px)": {
-      paddingTop: 38,
-      paddingBottom: 48,
+      paddingTop: 0,
+      paddingBottom: 32,
       marginLeft: 0,
-      width: "clamp(300px, 93%, 750px)",
-    },
-    "@media (min-width: 0px) and (max-width: 499px)": {
-      paddingTop: 24,
+      width: "100%",
     },
   },
   title: {
@@ -102,9 +102,12 @@ const useStyles = createUseStyles({
     "@media (min-width: 0px) and (max-width: 1139px)": {
       width: "100%",
     },
+    "@media (min-width: 0px) and (max-width: 550px)": {
+      fontSize: 20,
+    },
   },
   bold: {
-    fontWeight: "bold",
+    fontFamily: "Roobert_Latin_Bold",
   },
   caption: {
     fontFamily: "Roobert_Latin_Regular",
@@ -116,7 +119,6 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "flex-end",
-    marginBottom: 48,
   },
   downArrow: {
     position: "relative",
@@ -153,26 +155,117 @@ const useStyles = createUseStyles({
   ohOneStyles: {
     borderTop: "none",
     borderBottom: "none",
-    paddingTop: 63,
-    paddingBottom: 63,
+    paddingTop: 40,
+    paddingBottom: 40,
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      paddingTop: 0,
+      paddingBottom: 0,
+      marginTop: 32,
+      marginBottom: 32,
+    },
   },
   ohTwoStyles: {
     borderTop: "none",
     borderBottom: "none",
-    paddingTop: 48,
-    paddingBottom: 48,
+    paddingTop: 40,
+    paddingBottom: 40,
     flexWrap: "wrap",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      paddingBottom: 0,
+      paddingTop: 0,
+    },
   },
   quote: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Bold",
     fontSize: 32,
-    fontWeight: "bold",
-    color: "#05AA82",
+    color: "#01A4DC",
     lineHeight: 1.5,
+    "@media (min-width: 0px) and (max-width: 550px)": {
+      fontSize: 20,
+    },
+  },
+  quoteContainer: {
+    width: "46%",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      width: "100%",
+    },
   },
   graphImage: {
     marginBottom: 80,
     width: "100%",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      marginBottom: 32,
+    },
+  },
+  tldr: {
+    paddingTop: 72,
+    paddingBottom: 72,
+    paddingLeft: 0,
+    paddingRight: 0,
+    height: "auto",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 48,
+    marginBottom: 48,
+    marginRight: 0,
+    marginLeft: 0,
+    borderTop: "1px solid #767676",
+    borderBottom: "1px solid #767676",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      padding: 0,
+      flexDirection: "column-reverse",
+      justifyContent: "center",
+      paddingTop: 32,
+      marginTop: 32,
+      marginBottom: 32,
+    },
+  },
+  customVideo: {
+    width: "47%",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      width: "100%",
+    },
+  },
+  zoomBackground: {
+    '& [data-rmiz-modal-overlay="visible"]': {
+      backgroundColor: "#1E1E1E !important",
+    },
+  },
+  results: {
+    display: "flex",
+    flexDirection: "column",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      width: "25%",
+    },
+  },
+  resultsPercentage: {
+    fontFamily: "Roobert_Latin_Bold",
+    marginBottom: 8,
+  },
+  resultsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    fontFamily: "Roobert_Latin_Regular",
+  },
+  impactContent: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    "& > div:first-child": {
+      width: "40%",
+      "@media (min-width: 0px) and (max-width: 1200px)": {
+        width: "100%",
+      },
+    },
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      flexDirection: "column",
+      justifyContent: "center",
+    },
   },
 });
 
@@ -188,10 +281,6 @@ const StudentProfile = () => {
     imageUrl: afterImageSVG,
   };
 
-  const delimiterIconStyles = {
-    border: "2px solid #767676",
-  };
-
   return (
     <>
       <section className="container">
@@ -199,8 +288,8 @@ const StudentProfile = () => {
         <section className={classes.caseStudyContainer}>
           <img src={dataGridHero} className={classes.heroImage} />
           <h1 className={classes.mainHeading}>
-            The feature users loved to leave: Redesigning the data grid to stop
-            spreadsheet exodus
+            From data silos to quick insights: Designing a student overview
+            panel
           </h1>
           <div>
             {" "}
@@ -225,50 +314,53 @@ const StudentProfile = () => {
             <span className={classes.caseStudyDetails}>
               Lead Product Designer
             </span>
-            <span className={classes.caseStudyDetails}>8 Weeks</span>
+            <span className={classes.caseStudyDetails}>13 Weeks</span>
             <span className={classes.caseStudyDetails}>
-              Figma, miro, Mixpanel
+              Figma, Miro, Mixpanel
             </span>
           </div>
-          <section className={classes.caseStudySection}>
+          <section className={classes.tldr}>
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>TL;DR</p>
               <p className={classes.description}>
-                <span className={classes.bold}>The challenge: </span>NYC's
-                10,000+ educators were abandoning the Portal's most-used
-                feature. They were forced to rebuild their grid setups every
-                morning and ultimately exported to static spreadsheets,
-                defeating the platform's core value of live, updated data across
-                900+ columns.
+                <span className={classes.bold}>The challenge: </span>Teachers
+                were spending 5-10 minutes per student clicking through multiple
+                data panels just to answer basic questions like "How is this
+                student doing overall?
               </p>
               <p className={classes.description}>
                 <span className={classes.bold}>My solution: </span>
-                Designed a hybrid view system with role-based templates plus
-                custom saved views, featuring intuitive save/manage controls and
-                sidebar organization.
+                Designed a student overview panel that synthesizes key insights
+                from across the system - attendance patterns, academic progress,
+                graduation requirements, and intervention data - in one
+                scannable view.
               </p>
               <p className={classes.description}>
-                <span className={classes.bold}>The impact: </span>Support
-                tickets about session timeouts dropped 80% (from ~15 to 2-3
-                weekly), feature abandonment dropped from 60% to 20%, and users
-                returned to working with fresh daily data instead of static
-                exports.
+                <span className={classes.bold}>The impact: </span>43% reduction
+                in student assessment time, 67% increase in panel engagement,
+                and 89% of teachers reported significantly improved workflow
+                efficiency.
               </p>
               <p className={classes.title} style={{ marginTop: 16 }}>
                 My role
               </p>
               <p className={classes.description}>
-                Lead Product Designer responsible for user research, stakeholder
-                alignment, and design strategy.
+                Lead Product Designer working directly with engineering, product
+                management, and 8 NYC educators. I owned the end-to-end design
+                process from research through implementation over 3 months.
               </p>
             </section>
-            <div style={{ width: "47%" }}>
+            <div className={classes.caseStudyImageContainer}>
               <ReactBeforeSliderComponent
                 firstImage={afterImage}
                 secondImage={beforeImage}
-                delimiterIconStyles={delimiterIconStyles}
+                className={classes.delimeterContainer}
+                delimiterColor="#01A4DC"
               />
-              <p className={classes.caption}>
+              <p
+                className={classes.caption}
+                style={{ paddingBottom: width <= 1200 ? 16 : null }}
+              >
                 Before and after of the student profile page
               </p>
             </div>
@@ -281,7 +373,7 @@ const StudentProfile = () => {
                 className={classes.downArrow}
               />
               <h3 className={classes.scrollToLearnMoreText}>
-                SCROLL TO LEARN MORE
+                Scroll to learn more
               </h3>
               <img
                 src={downArrowIcon}
@@ -295,174 +387,161 @@ const StudentProfile = () => {
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
-                <span className={classes.number}>01</span>The great spreadsheet
-                migration
+                <span className={classes.number}>01</span>Uncovering the real
+                problem
               </p>
               <p className={classes.description}>
-                Our student profile data grid served 10,000+ NYC educators
-                daily, but it was driving them away. Users faced all 927 columns
-                at once, creating an overwhelming interface. New users would
-                abandon it immediately, while experienced users rebuilt their
-                entire setup every morning after session timeouts or school
-                switches.
+                During user interviews with 8 NYC educators, I used contextual
+                inquiry to understand their actual workflows during parent
+                conference prep. What I found was eye-opening: teachers were
+                consistently spending 5-10 minutes per student jumping between
+                panels just to get basic information.
               </p>
               <p className={classes.description}>
-                Users abandoned the Portal entirely, exporting to Excel and
-                Google Sheets just to preserve their work. This defeated our
-                core value of fresh, daily-updated data as users traded live
-                information for static snapshots.
+                When I dug into our analytics, the behavior matched perfectly:
+                73% of users accessed 3+ panels per student session, typically
+                following the same sequence: attendance → academics → credits →
+                state requirements.
+              </p>
+              <p className={classes.description}>
+                While we were already redesigning the Portal's navigation from a
+                long scrollable list to a sidebar for easier panel access, I
+                realized the core problem wasn't just navigation. Teachers
+                needed to synthesize scattered information quickly, not just
+                access it more efficiently.
               </p>
             </section>
-            <div style={{ width: "47%" }}>
-              <Zoom>
-                <img src={beforeImageSVG} style={{ width: "100%" }} />
-              </Zoom>
+            <div className={classes.quoteContainer}>
+              <p className={classes.quote}>
+                “I need to click through 4 different sections just to get the
+                full picture before a parent conference.”
+              </p>
+              <p className={classes.caption}>
+                - From a conversation with a frequent Portal user
+              </p>
             </div>
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
-                <span className={classes.number}>02</span>From Symptoms to Root
-                Cause
+                <span className={classes.number}>02</span>The wrong solution
+                (and learning from it)
               </p>
               <p className={classes.description}>
-                Initial support data showed a high volume of session timeout
-                complaints where users would configure their grid, navigate away
-                to other tasks, then return to find their work lost. This led us
-                to assume users simply needed save functionality.
+                Initially, I created a dashboard-heavy approach with new data
+                visualizations, responding to stakeholder requests for "more
+                visual" content.
               </p>
               <p className={classes.description}>
-                Through 8 interviews with principals, counselors, and teachers,
-                I discovered that session timeouts were just the final straw in
-                a much larger workflow problem.
+                The stakeholder feedback was insightful: "Teachers don't need
+                more data to look at. They need help understanding what it means
+                for each student." Additionally, shifting priorities meant some
+                requested metrics (like Tasks and Notes) were no longer needed.
+                This reframed my approach from data display to insight
+                synthesis.
               </p>
-              <ol className={classes.description} style={{ padding: 16 }}>
-                <li>
-                  927-column cognitive overload forcing lengthy daily setup
-                </li>
-                <li>
-                  No role-appropriate starting points, so everyone began with
-                  the same overwhelming interface
-                </li>
-              </ol>
             </section>
-            <div style={{ width: "47%" }}>
-              <p className={classes.quote}>
-                “I&#8217;d spend 20 minutes setting up my grid, leave to help a
-                student, then come back to find the system logged me out and all
-                my work gone. Now I just export to Sheets instead.”
-              </p>
-              <p className={classes.caption}>
-                - Quote from a support ticket received
-              </p>
+            <div className={classes.caseStudyImageContainer}>
+              <Zoom classDialog={classes.zoomBackground}>
+                <img src={beforeImageSVG} width="100%" />
+              </Zoom>
             </div>
           </section>
-          <Zoom>
-            <img src={graph} className={classes.graphImage} />
-          </Zoom>
-          <img src={dots} className={classes.dots} />
+          <div
+            className={classes.quoteContainer}
+            style={{
+              marginRight: "auto",
+              marginLeft: "auto",
+              marginBottom: width >= 1201 ? 80 : 32,
+            }}
+          >
+            <p className={classes.quote}>
+              “Teachers don't need more data to look at. They need help
+              understanding what it means for each student.”
+            </p>
+            <p className={classes.caption}>
+              - From a stakeholder during design review
+            </p>
+          </div>
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
-                <span className={classes.number}>03</span>Designing with
-                constraints
+                <span className={classes.number}>03</span>Strategic focus over
+                feature bloat
               </p>
               <p className={classes.description}>
-                This made me realize we needed to shift. Instead of just adding
-                the ability to save, how might we give users role-appropriate
-                starting points while maintaining flexibility?
+                Each team had compelling reasons for featuring their metrics
+                prominently—citing user feedback and business value. Through
+                collaborative design workshops, we explored how to balance
+                comprehensive access with usability. The challenge was creating
+                a solution that honored everyone's valid concerns while solving
+                the core user problem.
               </p>
               <p className={classes.description}>
-                Our MongoDB architecture limited how much view data we could
-                efficiently store, but this constraint led to a better solution.
-                After multiple meetings with engineering, product managers, and
-                school liaisons (where various teams initially wanted their own
-                specialized templates), we established 5 core templates covering
-                essential use cases.
+                My approach centered on making the 4 core modules
+                clickable—teachers get immediate insights with drill-down
+                capability for deeper analysis. This preserved access to all the
+                information teams needed elevated while maintaining the
+                scannable simplicity teachers required.
+              </p>
+              <p className={classes.description}>
+                Using Mixpanel data, I proposed adding detailed Attendance and
+                Academics sections below the core modules. Since these were the
+                most-accessed panels, this approach gave stakeholders confidence
+                their content remained appropriately prominent.
               </p>
             </section>
-            <div style={{ width: "47%" }}>
+            <div className={classes.caseStudyImageContainer}>
               {" "}
-              <Zoom>
-                <img style={{ width: "100%" }} src={viewDiagram} />
+              <Zoom classDialog={classes.zoomBackground}>
+                <img src={viewDiagram} width="100%" />
               </Zoom>
             </div>
-
             <div
               style={{
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "space-between",
+                justifyContent: "center",
                 width: "100%",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: "Roobert_Latin_Regular",
-                    fontSize: 14,
-                    marginTop: 32,
-                    marginBottom: 32,
-                  }}
-                >
-                  Three view types emerged:
-                </p>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    width: "100%",
-                  }}
-                >
-                  {" "}
-                  <img src={templateViews} style={{ width: "31.5%" }} />
-                  <img src={customViews} style={{ width: "31.5%" }} />
-                  <img src={defaultViews} style={{ width: "31.5%" }} />
-                </div>
-              </div>
+              <img src={templateViews} style={{ width: "80%" }} />
             </div>
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
-                <span className={classes.number}>04</span>Core interface design
+                <span className={classes.number}>04</span>Solving the
+                performance challenge
               </p>
               <p className={classes.description}>
-                The interface centered on an intuitive split-button save
-                control. 'Save Changes' was prominently displayed with 'Save As
-                New' accessible via dropdown, plus quick view switching via
-                sidebar. We also added a save prompt that appeared whenever
-                users navigated away from the grid, preventing work loss during
-                session timeouts.
+                Engineering flagged a critical issue: my design required 8+
+                simultaneous API calls versus existing on-demand loading. On
+                school Chromebooks, this meant 15+ second load times.
               </p>
               <p className={classes.description}>
-                To accommodate new controls without overwhelming the interface,
-                I restructured the page into two stacked menu bars: grid-related
-                actions in the top bar, student-related actions in the bottom
-                bar.
+                Rather than compromise the design, I worked closely with
+                engineering to create a full-screen skeleton loading approach.
+                The entire panel displays as a skeleton state while all data
+                loads in the background, then transitions smoothly to the
+                complete interface once everything is ready.
               </p>
               <p className={classes.description}>
-                I tested this split-button concept with 5 users to ensure the
-                distinction was clear before finalizing the design. Users
-                immediately understood the primary action while easily
-                discovering the secondary option.
+                The skeleton loading system worked so well that other teams
+                started asking for the documentation. Within 6 months, 5 other
+                Portal features had adopted the same pattern.
               </p>
             </section>
-            {width >= 500 && (
+            {width >= 551 && (
               <video
                 controls={false}
                 autoPlay
@@ -471,147 +550,137 @@ const StudentProfile = () => {
                 className={classes.customVideo}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
-                width="47%"
               >
                 <source src={saveButton} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             )}
-            {width <= 501 && <img src={gif} />}
+            {width <= 550 && <img width="100%" src={gif} />}
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
-            <section className={classes.caseStudyInfo}>
+            <section
+              className={classes.caseStudyInfo}
+              style={{ width: "100%", paddingBottom: width <= 1200 && 0 }}
+            >
               <p className={classes.title}>
-                <span className={classes.number}>05</span>Supporting workflows
-                and validation
+                <span className={classes.number}>05</span>Impact
               </p>
-              <p className={classes.description}>
-                I also designed a workflow for creating views from scratch.
-                Users could click a plus icon next to custom views to open the
-                edit columns modal with no pre-selected columns, then name and
-                save their new view.
-              </p>
-              <p className={classes.description}>
-                Before launch, I conducted usability sessions with 4 users to
-                test the end-to-end workflow of switching between views and
-                saving configurations, which confirmed the new system was
-                intuitive and significantly faster than their previous manual
-                setup process.
-              </p>
-            </section>
-            <div style={{ width: "47%" }}>
-              {" "}
-              <Zoom>
-                <img style={{ width: "100%" }} src={workFlow} />
-              </Zoom>
-            </div>
-          </section>
-          <img src={dots} className={classes.dots} />
-          <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
-          >
-            <section className={classes.caseStudyInfo}>
-              <p className={classes.title}>
-                <span className={classes.number}>06</span>Impact
-              </p>
-              <p className={classes.description}>
-                Three months post-launch, results validated the approach:
-              </p>
-              <ul
+              <p
                 className={classes.description}
-                style={{ padding: 16, width: 620 }}
+                style={{ width: width > 1200 ? "47%" : "100%" }}
               >
-                <li>
-                  80% reduction in support tickets about session timeouts and
-                  lost work (from ~15 to 2-3 weekly)
-                </li>
-                <li>
-                  Feature abandonment rate dropped from 60% to 20% as educators
-                  stopped avoiding the grid
-                </li>
-                <li>
-                  Average sessions per user per week increased from 2.3 to 4.1
-                  showing sustained engagement
-                </li>
-                <li>
-                  Percentage of users creating custom views increased from 15%
-                  to 55% demonstrating deeper adoption
-                </li>
-              </ul>
-              <p className={classes.description}>
-                Follow-up interviews confirmed users appreciated accessing fresh
-                data daily without setup burden, restoring our competitive
-                advantage. Users also requested view sharing with colleagues—a
-                feature we had identified during initial research but decided to
-                prioritize for a future release.
+                The final panel synthesized attendance patterns (with
+                interactive calendar), projected GPA, credits, and state testing
+                progress. Supporting modules provided detailed attendance and
+                academic context.
               </p>
+              <div className={classes.impactContent}>
+                <Zoom classDialog={classes.zoomBackground}>
+                  <img
+                    src={afterImageSVG}
+                    style={{
+                      marginTop: 24,
+                      width: "100%",
+                    }}
+                  />
+                </Zoom>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: width > 1200 ? "50%" : "100%",
+                    marginBottom: width >= 1200 ? 64 : 0,
+                    alignSelf: "center",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "Roobert_Latin_Regular",
+                      fontSize: 14,
+                      marginTop: 32,
+                      marginBottom: 32,
+                    }}
+                  >
+                    Results after 6 weeks:
+                  </p>{" "}
+                  <div className={classes.resultsContainer}>
+                    <p className={classes.results}>
+                      <span className={classes.resultsPercentage}>91.0%</span>
+                      Reduction in student assessment time
+                    </p>
+                    <p className={classes.results}>
+                      <span className={classes.resultsPercentage}>91.0%</span>
+                      Reduction in student assessment time
+                    </p>
+                    <p className={classes.results}>
+                      <span className={classes.resultsPercentage}>91.0%</span>
+                      Reduction in student assessment time
+                    </p>
+                  </div>
+                </div>
+              </div>
             </section>
-            <div style={{ width: "47%" }}>
-              <p className={classes.quote}>
-                “Before, I&#8217;d spend the first half hour of my day
-                rebuilding my graduation tracking view. Now I just switch to my
-                saved view and I'm immediately seeing which students need
-                interventions."
-              </p>
-              <p className={classes.caption}>
-                - From a guidance counselor, post launch
-              </p>
-            </div>
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
-            <section className={classes.caseStudyInfo}>
+            <section
+              className={classes.caseStudyInfo}
+              style={{ paddingBottom: width <= 1200 && 0 }}
+            >
               <p className={classes.title}>
-                <span className={classes.number}>07</span>Key Learnings
+                <span className={classes.number}>06</span>Key insights
               </p>
               <p className={classes.description}>
-                This project taught me the importance of looking beyond what
-                users say they need to understand what they actually need.
-                Instead of building the save button users asked for, we dug
-                deeper to understand the root cause (no role-appropriate
-                starting points) and designed a system that solved the broader
-                workflow issue.
+                Strategic curation beats comprehensive display. Focusing on 4
+                key modules actually increased detailed panel engagement,
+                proving thoughtful hierarchy enhances exploration.
               </p>
               <p className={classes.description}>
-                The constraint lesson was crucial: our MongoDB limitations
-                forced us to be strategic about what to build, which led to a
-                more focused solution than unlimited flexibility would have
-                provided. Sometimes technical constraints push you toward better
-                design decisions.
+                Technical constraints drive innovation. The skeleton loading
+                system solved performance issues and became a reusable pattern,
+                showing how collaborative problem-solving creates scalable
+                solutions.
               </p>
-            </section>
-            <div style={{ width: "47%" }}>
-              {" "}
-              <Zoom>
-                <img style={{ width: "100%" }} src={afterImageSVG} />
-              </Zoom>
-            </div>
+              <p className={classes.description}>
+                User needs trump stakeholder requests. Success came from
+                understanding why teachers needed information, not just what
+                information they wanted displayed.
+              </p>
+            </section>{" "}
           </section>
-          <img src={dots} className={classes.dots} />
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
-            <section className={classes.caseStudyInfo}>
+            <section
+              className={classes.caseStudyInfo}
+              style={{ paddingBottom: width <= 1200 && 0 }}
+            >
               <p className={classes.title}>
-                <span className={classes.number}>08</span>What I&#8217;d do
-                differently
+                <span className={classes.number}>07</span>Reflection
               </p>
               <p className={classes.description}>
-                I would have tested the two-bar layout concept with users before
-                implementation. While the two-bar solution worked well and
-                solved our space constraints, getting user feedback on the grid
-                vs. student action separation earlier could have validated this
-                approach and potentially revealed other layout solutions I
-                hadn't considered.
+                Looking back, I should have looped in engineering during my
+                wireframing phase rather than after stakeholder approval.
+                Discovering the API performance limitation two weeks into
+                development created unnecessary pressure and timeline risk. The
+                most surprising challenge wasn't technical though—it was
+                internal stakeholder management. Teams genuinely believed more
+                visible data meant more value, and it took persistent advocacy
+                plus our eventual success metrics to shift that mindset.
+                Ironically, the loading constraint led to our biggest win beyond
+                the panel itself: the skeleton system became a reusable
+                component that's now used across the platform. This project
+                taught me that sometimes the best solutions come from embracing
+                constraints rather than working around them.
               </p>
             </section>
           </section>
-          {/* add new code here */}
         </section>
       </section>
       <Footer />

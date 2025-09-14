@@ -37,8 +37,8 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 48,
-    marginBottom: 48,
+    marginTop: 40,
+    marginBottom: 40,
     marginRight: 0,
     marginLeft: 0,
     borderTop: "1px solid #767676",
@@ -47,7 +47,7 @@ const useStyles = createUseStyles({
       padding: 0,
       flexDirection: "column",
       justifyContent: "center",
-      paddingTop: 48,
+      paddingTop: 40,
       marginTop: 32,
       marginBottom: 32,
     },
@@ -165,8 +165,8 @@ const useStyles = createUseStyles({
   ohOneStyles: {
     borderTop: "none",
     borderBottom: "none",
-    paddingTop: 63,
-    paddingBottom: 63,
+    paddingTop: 40,
+    paddingBottom: 40,
     "@media (min-width: 0px) and (max-width: 1200px)": {
       paddingTop: 0,
       paddingBottom: 0,
@@ -177,8 +177,8 @@ const useStyles = createUseStyles({
   ohTwoStyles: {
     borderTop: "none",
     borderBottom: "none",
-    paddingTop: 48,
-    paddingBottom: 48,
+    paddingTop: 40,
+    paddingBottom: 40,
     flexWrap: "wrap",
     "@media (min-width: 0px) and (max-width: 1200px)": {
       paddingBottom: 0,
@@ -186,9 +186,8 @@ const useStyles = createUseStyles({
     },
   },
   quote: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Bold",
     fontSize: 32,
-    fontWeight: "bold",
     color: "#05AA82",
     lineHeight: 1.5,
     "@media (min-width: 0px) and (max-width: 550px)": {
@@ -306,7 +305,7 @@ const DataGrid = () => {
             </span>
             <span className={classes.caseStudyDetails}>8 Weeks</span>
             <span className={classes.caseStudyDetails}>
-              Figma, miro, Mixpanel
+              Figma, Miro, Mixpanel
             </span>
           </div>
           <section className={classes.tldr}>
@@ -364,7 +363,7 @@ const DataGrid = () => {
                 className={classes.downArrow}
               />
               <h3 className={classes.scrollToLearnMoreText}>
-                SCROLL TO LEARN MORE
+                Scroll to learn more
               </h3>
               <img
                 src={downArrowIcon}
@@ -510,8 +509,9 @@ const DataGrid = () => {
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-between",
+                    justifyContent: width >= 551 ? "space-between" : "center",
                     width: "100%",
+                    marginBottom: width >= 551 && 64,
                   }}
                 >
                   {" "}
@@ -532,6 +532,9 @@ const DataGrid = () => {
                     </>
                   )}
                 </div>
+                <Zoom classDialog={classes.zoomBackground}>
+                  <img src={afterImageSVG} width="100%" />
+                </Zoom>
               </div>
             </div>
           </section>
@@ -655,7 +658,7 @@ const DataGrid = () => {
                 “Before, I&#8217;d spend the first half hour of my day
                 rebuilding my graduation tracking view. Now I just switch to my
                 saved view and I'm immediately seeing which students need
-                interventions."
+                interventions.”
               </p>
               <p className={classes.caption}>
                 - From a guidance counselor, post launch
