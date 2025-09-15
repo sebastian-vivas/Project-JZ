@@ -119,14 +119,14 @@ const useStyles = createUseStyles({
     animationName: "$fadeIn",
     animationIterationCount: 1,
     animationTimingFunction: "ease-in",
-    animationDuration: "3s",
+    animationDuration: "1s",
   },
   fadeOut: {
     opacity: 0,
     animationName: "$fadeOut",
     animationIterationCount: 1,
     animationTimingFunction: "ease-out",
-    animationDuration: "2s",
+    animationDuration: "1.5s",
   },
   footerTextLineThrough: {
     position: "absolute",
