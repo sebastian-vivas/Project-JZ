@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { createUseStyles } from "react-jss";
 import clsx from "clsx";
+import diagonalArrowUpIcon from "../images/diagonal-arrow-up.svg";
 
 const useStyles = createUseStyles({
   footerContainer: {
@@ -138,6 +139,19 @@ const useStyles = createUseStyles({
     transformOrigin: "left center",
     transition: "transform 0.15s ease-in-out",
   },
+  githubLink: {
+    color: "#1E1E1E",
+    textDecoration: "none",
+    "&:hover": {
+      opacity: 0.7,
+    },
+  },
+  diagonalArrowUp: {
+    position: "relative",
+    top: 3,
+    right: 2,
+    width: 16,
+  },
 });
 
 const Footer = ({ containerStyles }) => {
@@ -166,17 +180,42 @@ const Footer = ({ containerStyles }) => {
     <footer className={classes.footerContainer} style={containerStyles}>
       <section className={classes.footerLinksCopyright}>
         <h4 className={classes.footerHeading}>Let&#8217;s connect! :)</h4>
-        <h4 className={classes.footerHeading}>Hand coded in React, by me</h4>
+        <a
+          className={clsx(classes.githubLink, classes.footerHeading)}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={"https://github.com/julissa-zavala/portfolio-site"}
+        >
+          Hand coded in React, by me{" "}
+          <img
+            src={diagonalArrowUpIcon}
+            alt="Black arrow pointing up to the right diagonally"
+            className={classes.diagonalArrowUp}
+          />
+        </a>
       </section>
       <section className={classes.footerLinksCopyright}>
         <section>
-          <a
+          {/* <a
             href="https://www.linkedin.com/in/julissazavala/"
             target="_blank"
             className={clsx(classes.footerItem, classes.footerLinkedin)}
           >
             LINKEDIN
             <div className={classes.footerTextLineThrough}></div>
+          </a> */}
+          <a
+            className={clsx(classes.githubLink, classes.footerHeading)}
+            target="_blank"
+            rel="noopener noreferrer"
+            href={"https://github.com/julissa-zavala/portfolio-site"}
+          >
+            LinkedIn{" "}
+            <img
+              src={diagonalArrowUpIcon}
+              alt="Black arrow pointing up to the right diagonally"
+              className={classes.diagonalArrowUp}
+            />{" "}
           </a>
           <span>/</span>
           <a

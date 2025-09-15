@@ -72,7 +72,7 @@ const useStyles = createUseStyles({
     color: "#1E1E1E",
     textDecoration: "none",
     "&:hover": {
-      color: "#767676",
+      opacity: .7,
     },
   },
   diagonalArrowUp: {
