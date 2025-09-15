@@ -152,14 +152,19 @@ const useStyles = createUseStyles({
     right: 2,
     width: 16,
   },
+  copyText: {
+    display: "none",
+  },
 });
 
 const Footer = ({ containerStyles }) => {
   const classes = useStyles();
   const [copied, setCopied] = useState(false);
   const inputRef = useRef(null);
+  const [ShowHoverTooltip, setShowHoverTooltip] = useState("none");
 
   const copyText = async () => {
+    setShowHoverTooltip("none");
     try {
       await navigator.clipboard.writeText("hello@julissa.zavala.com");
       setCopied(true);
@@ -174,6 +179,16 @@ const Footer = ({ containerStyles }) => {
         setTimeout(() => setCopied(false), 2000);
       }
     }
+  };
+
+  const handleMouseEnter = () => {
+    if (!copied) {
+      setShowHoverTooltip("block");
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setShowHoverTooltip("none");
   };
 
   return (
@@ -196,14 +211,6 @@ const Footer = ({ containerStyles }) => {
       </section>
       <section className={classes.footerLinksCopyright}>
         <section>
-          {/* <a
-            href="https://www.linkedin.com/in/julissazavala/"
-            target="_blank"
-            className={clsx(classes.footerItem, classes.footerLinkedin)}
-          >
-            LINKEDIN
-            <div className={classes.footerTextLineThrough}></div>
-          </a> */}
           <a
             className={clsx(classes.githubLink, classes.footerHeading)}
             target="_blank"
@@ -221,9 +228,21 @@ const Footer = ({ containerStyles }) => {
           <a
             onClick={copyText}
             className={clsx(classes.footerItem, classes.footerEmail)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             hello@julissa.zavala.com
           </a>
+          <div
+            className={clsx(classes.copiedAlert)}
+            style={{ display: ShowHoverTooltip }}
+          >
+            Copy
+          </div>
+          <div
+            className={clsx(classes.arrowUp)}
+            style={{ display: ShowHoverTooltip }}
+          ></div>
           {copied && (
             <>
               <div
