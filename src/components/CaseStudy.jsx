@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 import rightArrowIcon from "../images/right-arrow-black.svg";
 
@@ -26,6 +27,7 @@ const useStyles = createUseStyles({
   caseStudyImage: {
     width: "47%",
     borderRadius: 4,
+    cursor: "pointer",
     "@media (min-width: 0px) and (max-width: 1280px)": {
       width: "clamp(300px, 98%, 608px)",
     },
@@ -46,20 +48,20 @@ const useStyles = createUseStyles({
     },
   },
   caseStudyTitle: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 22,
     fontWeight: 800,
     marginBottom: 4,
     "@media (min-width: 701px) and (max-width: 1200px)": {},
   },
   caseStudyDescription: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 14,
     marginTop: 16,
     lineHeight: 1.3,
   },
   readMoreText: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     color: "#1E1E1E",
     fontSize: 14,
     lineHeight: "normal",
@@ -78,7 +80,7 @@ const useStyles = createUseStyles({
   caseStudyReadMore: {
     position: "relative",
     color: "#1E1E1E",
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 12,
     cursor: "pointer",
     top: 18,
@@ -103,7 +105,7 @@ const useStyles = createUseStyles({
   },
   caseStudyCompanyName: {
     color: "#767676",
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 12,
     fontWeight: 100,
   },
@@ -111,10 +113,15 @@ const useStyles = createUseStyles({
 
 const CaseStudy = ({ title, description, route, image }) => {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   return (
     <section className={classes.caseStudyContainer}>
-      <img src={image} className={classes.caseStudyImage} />
+      <img
+        src={image}
+        className={classes.caseStudyImage}
+        onClick={() => navigate(route)}
+      />
       <section className={classes.caseStudyInfo}>
         <p className={classes.caseStudyTitle}>{title}</p>
         <span className={classes.caseStudyCompanyName}>

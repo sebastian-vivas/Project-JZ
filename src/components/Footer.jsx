@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
     },
   },
   footerHeading: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontWeight: 300,
     margin: "0 0 15px 0",
     marginBottom: 8,
@@ -34,7 +34,7 @@ const useStyles = createUseStyles({
     },
   },
   footerItem: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     cursor: "pointer",
     textDecoration: "none",
     color: "#1E1E1E",
@@ -70,7 +70,7 @@ const useStyles = createUseStyles({
     left: 7,
   },
   copiedAlert: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     position: "absolute",
     width: 55,
     height: 23,
@@ -139,7 +139,7 @@ const useStyles = createUseStyles({
     transformOrigin: "left center",
     transition: "transform 0.15s ease-in-out",
   },
-  githubLink: {
+  link: {
     color: "#1E1E1E",
     textDecoration: "none",
     "&:hover": {
@@ -196,12 +196,12 @@ const Footer = ({ containerStyles }) => {
       <section className={classes.footerLinksCopyright}>
         <h4 className={classes.footerHeading}>Let&#8217;s connect! :)</h4>
         <a
-          className={clsx(classes.githubLink, classes.footerHeading)}
+          className={clsx(classes.link, classes.footerHeading)}
           target="_blank"
           rel="noopener noreferrer"
           href={"https://github.com/julissa-zavala/portfolio-site"}
         >
-          Hand coded in React, by me{" "}
+          Hand coded in React{" "}
           <img
             src={diagonalArrowUpIcon}
             alt="Black arrow pointing up to the right diagonally"
@@ -212,10 +212,10 @@ const Footer = ({ containerStyles }) => {
       <section className={classes.footerLinksCopyright}>
         <section>
           <a
-            className={clsx(classes.githubLink, classes.footerHeading)}
+            className={clsx(classes.footerHeading, classes.link)}
             target="_blank"
             rel="noopener noreferrer"
-            href={"https://github.com/julissa-zavala/portfolio-site"}
+            href="https://www.linkedin.com/in/julissazavala/"
           >
             LinkedIn{" "}
             <img

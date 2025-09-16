@@ -18,6 +18,7 @@ import "react-before-after-slider-component/dist/build.css";
 import viewDiagram from "../images/4_viewDiagram.svg";
 import workFlow from "../images/7_workflow.svg";
 import gif from "../images/6_savebutton-ezgif.com-resize.gif";
+import gif2 from "../images/8_sidebar.gif";
 import saveButton from "../images/6_savebutton.mp4";
 import sideBar from "../images/8_sidebar.mp4";
 import useWindowDimensions from "../hooks/useWindowDimensions";
@@ -73,20 +74,20 @@ const useStyles = createUseStyles({
     },
   },
   title: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 22,
     fontWeight: 800,
     marginBottom: 0,
     "@media (min-width: 701px) and (max-width: 1200px)": {},
   },
   description: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 14,
     marginTop: 16,
   },
   caseStudyDetails: {
     color: "#1E1E1E",
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     lineHeight: 1.2,
     fontSize: 12,
     fontWeight: 100,
@@ -101,7 +102,7 @@ const useStyles = createUseStyles({
     width: "100%",
   },
   mainHeading: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 43,
     textAlign: "left",
     marginBottom: 24,
@@ -113,10 +114,10 @@ const useStyles = createUseStyles({
     },
   },
   bold: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
   },
   caption: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 12,
     marginTop: 10,
     color: "#767676",
@@ -135,7 +136,7 @@ const useStyles = createUseStyles({
     top: 4,
   },
   scrollToLearnMoreText: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 14,
     textAlign: "center",
     display: "inline-block",
@@ -148,7 +149,7 @@ const useStyles = createUseStyles({
   number: {
     fontSize: 12,
     color: "#767676",
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontWeight: 100,
     marginRight: 8,
   },
@@ -186,7 +187,7 @@ const useStyles = createUseStyles({
     },
   },
   quote: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 32,
     color: "#05AA82",
     lineHeight: 1.5,
@@ -332,7 +333,7 @@ const DataGrid = () => {
                 returned to working with fresh daily data instead of static
                 exports.
               </p>
-              <p className={classes.title} style={{ marginTop: 16 }}>
+              <p className={classes.title} style={{ marginTop: 32 }}>
                 My role
               </p>
               <p className={classes.description}>
@@ -397,11 +398,15 @@ const DataGrid = () => {
             </section>
             <div className={classes.caseStudyImageContainer}>
               <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
+                <img
+                  src={beforeImageSVG}
+                  width="100%"
+                  style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+                />
               </Zoom>
             </div>
           </section>
-          <img src={width >= 551 ? dots : line} className={classes.dots} />
+          <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
@@ -452,7 +457,7 @@ const DataGrid = () => {
           <Zoom classDialog={clsx(classes.zoomBackground)}>
             <img className={classes.graphImage} src={graph} />
           </Zoom>
-          <img src={width >= 551 ? dots : line} className={classes.dots} />
+          <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
@@ -498,7 +503,7 @@ const DataGrid = () => {
               >
                 <p
                   style={{
-                    fontFamily: "Roobert_Latin_Regular",
+                    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
                     fontSize: 14,
                     marginTop: 32,
                     marginBottom: 32,
@@ -509,13 +514,13 @@ const DataGrid = () => {
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: width >= 551 ? "space-between" : "center",
+                    justifyContent: width >= 901 ? "space-between" : "center",
                     width: "100%",
-                    marginBottom: width >= 551 && 64,
+                    marginBottom: width >= 901 && 64,
                   }}
                 >
                   {" "}
-                  {width <= 550 && (
+                  {width <= 900 && (
                     <ImageGallery
                       showFullscreenButton={false}
                       showPlayButton={false}
@@ -524,7 +529,7 @@ const DataGrid = () => {
                       showBullets={true}
                     />
                   )}
-                  {width >= 551 && (
+                  {width >= 901 && (
                     <>
                       <img src={templateViews} style={{ width: "31.5%" }} />
                       <img src={customViews} style={{ width: "31.5%" }} />
@@ -532,13 +537,10 @@ const DataGrid = () => {
                     </>
                   )}
                 </div>
-                <Zoom classDialog={classes.zoomBackground}>
-                  <img src={afterImageSVG} width="100%" />
-                </Zoom>
               </div>
             </div>
           </section>
-          <img src={width >= 551 ? dots : line} className={classes.dots} />
+          <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
@@ -576,14 +578,21 @@ const DataGrid = () => {
                 className={classes.customVideo}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
               >
                 <source src={saveButton} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             )}
-            {width <= 550 && <img width="100%" src={gif} />}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={gif}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
           </section>
-          <img src={width >= 551 ? dots : line} className={classes.dots} />
+          <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
@@ -613,7 +622,7 @@ const DataGrid = () => {
               </Zoom>
             </div>
           </section>
-          <img src={width >= 551 ? dots : line} className={classes.dots} />
+          <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
@@ -665,7 +674,7 @@ const DataGrid = () => {
               </p>
             </div>
           </section>
-          <img src={width >= 551 ? dots : line} className={classes.dots} />
+          <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
@@ -698,14 +707,21 @@ const DataGrid = () => {
                 className={classes.customVideo}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
               >
                 <source src={sideBar} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             )}
-            {width <= 550 && <img width="100%" src={gif} />}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={gif2}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
           </section>
-          <img src={width >= 551 ? dots : line} className={classes.dots} />
+          <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >

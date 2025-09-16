@@ -4,20 +4,27 @@ import Footer from "../components/Footer";
 import clsx from "clsx";
 import downArrowIcon from "../images/down-arrow-black.svg";
 import dots from "../images/dots.svg";
-import dataGridHero from "../images/DataGridHero.svg";
+import heroImage from "../images/hero_SP.svg";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import beforeImageSVG from "../images/1_Before.svg";
-import afterImageSVG from "../images/1_after.svg";
-import templateViews from "../images/templateViews.svg";
+import beforeImageSVG from "../images/beforeStudentProfile.svg";
+import afterImageSVG from "../images/after.svg";
 import ReactBeforeSliderComponent from "react-before-after-slider-component";
 import "react-before-after-slider-component/dist/build.css";
-import viewDiagram from "../images/4_viewDiagram.svg";
-import gif from "../images/6_savebutton-ezgif.com-resize.gif";
-import saveButton from "../images/6_savebutton.mp4";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import "react-image-gallery/styles/css/image-gallery.css";
 import line from "../images/line.svg";
+import brainStorm from "../images/studentProfileBrainstormingSessionTemplate.jpg";
+import drawingBoard from "../images/drawingboard_SP.svg";
+import skeleton from "../images/skeleton.mp4";
+import skeletonGif from "../images/skeleton.gif";
+import validation from "../images/validation.svg";
+import refinement from "../images/refinement.svg";
+import wireframe from "../images/initialSolutions.svg";
+import attendance from "../images/attendancemodule.mp4";
+import attendanceGif from "../images/attendancemodule.gif";
+import academics from "../images/academicsmodule.mp4";
+import academicsGif from "../images/academicsmodule.gif";
 
 const useStyles = createUseStyles({
   caseStudySection: {
@@ -67,20 +74,18 @@ const useStyles = createUseStyles({
     },
   },
   title: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 22,
     fontWeight: 800,
-    marginBottom: 0,
-    "@media (min-width: 701px) and (max-width: 1200px)": {},
   },
   description: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 14,
     marginTop: 16,
   },
   caseStudyDetails: {
     color: "#1E1E1E",
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     lineHeight: 1.2,
     fontSize: 12,
     fontWeight: 100,
@@ -95,7 +100,7 @@ const useStyles = createUseStyles({
     width: "100%",
   },
   mainHeading: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 43,
     textAlign: "left",
     marginBottom: 24,
@@ -107,10 +112,10 @@ const useStyles = createUseStyles({
     },
   },
   bold: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
   },
   caption: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 12,
     marginTop: 10,
     color: "#767676",
@@ -125,7 +130,7 @@ const useStyles = createUseStyles({
     top: 4,
   },
   scrollToLearnMoreText: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 14,
     textAlign: "center",
     display: "inline-block",
@@ -138,7 +143,7 @@ const useStyles = createUseStyles({
   number: {
     fontSize: 12,
     color: "#767676",
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontWeight: 100,
     marginRight: 8,
   },
@@ -176,7 +181,7 @@ const useStyles = createUseStyles({
     },
   },
   quote: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 32,
     color: "#01A4DC",
     lineHeight: 1.5,
@@ -225,6 +230,8 @@ const useStyles = createUseStyles({
   },
   customVideo: {
     width: "47%",
+    border: "0.5px solid #e4e4e7",
+    borderRadius: 8,
     "@media (min-width: 0px) and (max-width: 1200px)": {
       width: "100%",
     },
@@ -237,19 +244,19 @@ const useStyles = createUseStyles({
   results: {
     display: "flex",
     flexDirection: "column",
-    "@media (min-width: 0px) and (max-width: 1200px)": {
-      width: "25%",
-    },
+    width: "26%",
+    fontSize: 14,
   },
   resultsPercentage: {
-    fontFamily: "Roobert_Latin_Bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     marginBottom: 8,
+    fontSize: 22,
   },
   resultsContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
   },
   impactContent: {
     display: "flex",
@@ -286,7 +293,7 @@ const StudentProfile = () => {
       <section className="container">
         <HeaderNav />
         <section className={classes.caseStudyContainer}>
-          <img src={dataGridHero} className={classes.heroImage} />
+          <img src={heroImage} className={classes.heroImage} />
           <h1 className={classes.mainHeading}>
             From data silos to quick insights: Designing a student overview
             panel
@@ -319,6 +326,9 @@ const StudentProfile = () => {
               Figma, Miro, Mixpanel
             </span>
           </div>
+
+          {/* ________________________TL;DR_____________________________ */}
+
           <section className={classes.tldr}>
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>TL;DR</p>
@@ -341,7 +351,13 @@ const StudentProfile = () => {
                 and 89% of teachers reported significantly improved workflow
                 efficiency.
               </p>
-              <p className={classes.title} style={{ marginTop: 16 }}>
+              <p className={classes.description}>
+                <span className={classes.bold}>Key innovation: </span>Created a
+                skeleton loading system that became a reusable pattern adopted
+                across 5 other Portal features, solving performance constraints
+                while enhancing user experience.
+              </p>
+              <p className={classes.title} style={{ marginTop: 32 }}>
                 My role
               </p>
               <p className={classes.description}>
@@ -354,7 +370,6 @@ const StudentProfile = () => {
               <ReactBeforeSliderComponent
                 firstImage={afterImage}
                 secondImage={beforeImage}
-                className={classes.delimeterContainer}
                 delimiterColor="#01A4DC"
               />
               <p
@@ -382,6 +397,9 @@ const StudentProfile = () => {
               />
             </section>
           </section>
+
+          {/* ________________________01: UNCOVERING THE REAL PROBLEM_____________________________ */}
+
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
@@ -391,24 +409,21 @@ const StudentProfile = () => {
                 problem
               </p>
               <p className={classes.description}>
-                During user interviews with 8 NYC educators, I used contextual
-                inquiry to understand their actual workflows during parent
-                conference prep. What I found was eye-opening: teachers were
-                consistently spending 5-10 minutes per student jumping between
-                panels just to get basic information.
+                During contextual inquiry with 8 NYC educators, I observed
+                teachers spending 5-10 minutes per student jumping between
+                panels just to answer "How is this student doing overall?"
+                Analytics confirmed this pattern: 73% of users accessed 3+
+                panels per student session, following the same inefficient
+                sequence every time.
               </p>
               <p className={classes.description}>
-                When I dug into our analytics, the behavior matched perfectly:
-                73% of users accessed 3+ panels per student session, typically
-                following the same sequence: attendance → academics → credits →
-                state requirements.
-              </p>
-              <p className={classes.description}>
-                While we were already redesigning the Portal's navigation from a
-                long scrollable list to a sidebar for easier panel access, I
-                realized the core problem wasn't just navigation. Teachers
-                needed to synthesize scattered information quickly, not just
-                access it more efficiently.
+                As I was already redesigning the student profile's navigation
+                layout to improve information hierarchy, the real insight came
+                from watching their workflow—teachers weren't struggling with
+                navigation alone, they were struggling to synthesize scattered
+                data into actionable insights for parent conferences. This led
+                me to propose adding a new overview panel to the redesigned
+                profile.
               </p>
             </section>
             <div className={classes.quoteContainer}>
@@ -422,6 +437,9 @@ const StudentProfile = () => {
             </div>
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
+
+          {/* ________________________02: THE WRONG SOLUTION_____________________________ */}
+
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
@@ -431,22 +449,17 @@ const StudentProfile = () => {
                 (and learning from it)
               </p>
               <p className={classes.description}>
-                Initially, I created a dashboard-heavy approach with new data
-                visualizations, responding to stakeholder requests for "more
-                visual" content.
-              </p>
-              <p className={classes.description}>
-                The stakeholder feedback was insightful: "Teachers don't need
-                more data to look at. They need help understanding what it means
-                for each student." Additionally, shifting priorities meant some
-                requested metrics (like Tasks and Notes) were no longer needed.
-                This reframed my approach from data display to insight
-                synthesis.
+                Given carte blanche to create a dashboard-like summary, I
+                initially created wireframes with 6+ modules including detailed
+                data visualizations for academics, graduation plans, regents,
+                attendance, credits, and tasks/notes. After faciliating a design
+                review with key stakeholders, I received feedback that this
+                approach was comprehensive but unfocused.
               </p>
             </section>
             <div className={classes.caseStudyImageContainer}>
               <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
+                <img src={wireframe} width="100%" />
               </Zoom>
             </div>
           </section>
@@ -467,6 +480,9 @@ const StudentProfile = () => {
             </p>
           </div>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
+
+          {/* ________________________03: STRATEGIC FOCUS_____________________________ */}
+
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
@@ -476,69 +492,150 @@ const StudentProfile = () => {
                 feature bloat
               </p>
               <p className={classes.description}>
-                Each team had compelling reasons for featuring their metrics
-                prominently—citing user feedback and business value. Through
-                collaborative design workshops, we explored how to balance
-                comprehensive access with usability. The challenge was creating
-                a solution that honored everyone's valid concerns while solving
-                the core user problem.
+                Another obstacle emerged when each product team wanted their
+                metrics featured prominently in this new summary panel.
               </p>
               <p className={classes.description}>
-                My approach centered on making the 4 core modules
-                clickable—teachers get immediate insights with drill-down
-                capability for deeper analysis. This preserved access to all the
-                information teams needed elevated while maintaining the
-                scannable simplicity teachers required.
+                I facilitated alignment workshops with product managers across 5
+                different teams and as a team, we established that this panel
+                should "tell the student's educational journey" and provide
+                "actionable information" for next steps. This became my design
+                criteria.
               </p>
               <p className={classes.description}>
-                Using Mixpanel data, I proposed adding detailed Attendance and
-                Academics sections below the core modules. Since these were the
-                most-accessed panels, this approach gave stakeholders confidence
-                their content remained appropriately prominent.
+                The collaborative breakthrough was establishing that this panel
+                shows highlights for quick student risk assessment, with each
+                module clickable to access their team's detailed information in
+                dedicated panels. This approach honored everyone's needs while
+                serving our users.
               </p>
             </section>
             <div className={classes.caseStudyImageContainer}>
               {" "}
-              <Zoom classDialog={classes.zoomBackground}>
-                <img src={viewDiagram} width="100%" />
+              <Zoom
+                classDialog={classes.zoomBackground}
+                canSwipeToUnzoom={false}
+              >
+                <img
+                  src={brainStorm}
+                  width="100%"
+                  style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+                />
               </Zoom>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                width: "100%",
-              }}
-            >
-              <img src={templateViews} style={{ width: "80%" }} />
             </div>
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
+
+          {/* _____________________04: BACK TO THE DRAWING BOARD________________________ */}
+
           <section
-            className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
-                <span className={classes.number}>04</span>Solving the
+                <span className={classes.number}>04</span>Back to the drawing
+                board
+              </p>
+              <p className={classes.description}>
+                Given carte blanche to create a dashboard-like summary, I
+                initially created wireframes with 6+ modules including detailed
+                data visualizations for academics, graduation plans, regents,
+                attendance, credits, and tasks/notes. After faciliating a design
+                review with key stakeholders, I received feedback that this
+                approach was comprehensive but unfocused.
+              </p>
+            </section>
+            <div className={classes.caseStudyImageContainer}>
+              <Zoom classDialog={classes.zoomBackground}>
+                <img src={drawingBoard} width="100%" />
+              </Zoom>
+            </div>
+          </section>
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
+
+          {/* ________________________05: VALIDATION REFINEMENT________________________ */}
+
+          <section
+            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+          >
+            <section className={classes.caseStudyInfo}>
+              <p className={classes.title}>
+                <span className={classes.number}>05</span>Validation and
+                refinement
+              </p>
+              <p className={classes.description}>
+                I tested the 4-module concept with 5 teachers using realistic
+                student data. Results were clear: 60% reduction in assessment
+                time and increased exploration of detailed information. When
+                stakeholders pushed for progress bars in the 4 modules and
+                additional data visualizations, inspired by the visual elements
+                I'd successfully introduced elsewhere in the panel, I used this
+                validation data to advocate for strategic focus.
+              </p>
+              <p className={classes.description}>
+                The compromise was adding progress bars to the respective
+                detailed panels where there's room to explain their complexity,
+                while keeping the overview modules simple.
+              </p>
+              <p className={classes.description}>
+                We also replaced the attendance graph with an interactive
+                attendance calendar, addressing their preference for more visual
+                data representation while maintaining core simplicity, since
+                user research showed school staff needed to quickly identify
+                attendance patterns that could inform intervention decisions.
+              </p>
+            </section>
+            <div className={classes.caseStudyImageContainer}>
+              <Zoom classDialog={classes.zoomBackground}>
+                <img src={validation} width="100%" />
+              </Zoom>
+              <p
+                className={classes.caption}
+                style={{ marginBottom: width <= 1200 ? 32 : 48 }}
+              >
+                Some stakeholders pushed for progress bars in the top 4 modules
+              </p>
+              <Zoom classDialog={classes.zoomBackground}>
+                <img src={refinement} width="100%" />
+              </Zoom>
+              <p
+                className={classes.caption}
+                style={{ marginBottom: width <= 1200 ? 12 : 0 }}
+              >
+                Compromise was to add progress bars to the respective panels
+                instead
+              </p>
+            </div>
+          </section>
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
+
+          {/* ________________________06: SOLVING THE PERFORMANCE CHALLENGE________________________ */}
+
+          <section
+            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+          >
+            <section className={classes.caseStudyInfo}>
+              <p className={classes.title}>
+                <span className={classes.number}>06</span>Solving the
                 performance challenge
               </p>
               <p className={classes.description}>
-                Engineering flagged a critical issue: my design required 8+
-                simultaneous API calls versus existing on-demand loading. On
-                school Chromebooks, this meant 15+ second load times.
+                Engineering flagged a critical issue: my panel required loading
+                data from 4 different backend systems simultaneously (8+ API
+                calls) versus existing on-demand loading. On school Chromebooks,
+                this meant 5+ second load times that would lose users entirely.
               </p>
               <p className={classes.description}>
-                Rather than compromise the design, I worked closely with
-                engineering to create a full-screen skeleton loading approach.
-                The entire panel displays as a skeleton state while all data
-                loads in the background, then transitions smoothly to the
-                complete interface once everything is ready.
+                I proposed skeleton loading for the entire overview panel. Users
+                see the full structure with animated placeholders while data
+                loads. I created design documentation defining skeleton states
+                for different content types, establishing shared language
+                between teams.
               </p>
               <p className={classes.description}>
-                The skeleton loading system worked so well that other teams
-                started asking for the documentation. Within 6 months, 5 other
-                Portal features had adopted the same pattern.
+                The solution was so effective that these skeleton loading
+                components now serve 5 different Portal features and established
+                design patterns for new features across the platform
               </p>
             </section>
             {width >= 551 && (
@@ -551,13 +648,135 @@ const StudentProfile = () => {
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
               >
-                <source src={saveButton} type="video/mp4" />
+                <source src={skeleton} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             )}
-            {width <= 550 && <img width="100%" src={gif} />}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={skeletonGif}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
+
+          {/* ________________________07: THE FINAL SOLUTION_________________________ */}
+
+          <section
+            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+          >
+            <section className={classes.caseStudyInfo}>
+              <p className={classes.title}>
+                <span className={classes.number}>07</span>The final solution
+              </p>
+              <p className={classes.description}>
+                Engineering flagged a critical issue: my panel required loading
+                data from 4 different backend systems simultaneously (8+ API
+                calls) versus existing on-demand loading. On school Chromebooks,
+                this meant 5+ second load times that would lose users entirely.
+              </p>
+            </section>
+            {width >= 551 && (
+              <video
+                controls={false}
+                autoPlay
+                loop
+                muted
+                className={classes.customVideo}
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                disablePictureInPicture
+                style={{
+                  width: "35%",
+                  marginLeft: "auto",
+                }}
+              >
+                <source src={attendance} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={attendanceGif}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
+          </section>
+          <section
+            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+          >
+            <section className={classes.caseStudyInfo}>
+              <p
+                className={classes.description}
+                style={{ marginTop: width <= 1200 && 0 }}
+              >
+                For the academics section, I coordinated with the data team to
+                establish a traffic light color system (green/yellow/red) for
+                courses passing, making intervention needs instantly
+                recognizable. We designed graceful fallback states for edge
+                cases like beginning of year when grades aren't yet available,
+                showing "In Progress" rather than confusing empty states.
+              </p>
+              <p className={classes.description}>
+                The supporting modules provide detailed context while
+                maintaining our principle of actionable information. Each
+                element guides educators toward next steps rather than just
+                displaying comprehensive data.
+              </p>
+            </section>
+            {width >= 551 && (
+              <video
+                controls={false}
+                autoPlay
+                loop
+                className={classes.customVideo}
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                disablePictureInPicture
+                style={{
+                  width: "35%",
+                  marginLeft: "auto",
+                }}
+              >
+                <source src={academics} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={academicsGif}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
+          </section>
+          <section
+            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+          >
+            <section className={classes.caseStudyInfo}>
+              <p
+                className={classes.description}
+                style={{ marginTop: width <= 1200 && 0 }}
+              >
+                The final panel synthesized attendance patterns with interactive
+                calendar, projected GPA, credits, and state testing progress.
+              </p>
+            </section>
+            <div className={classes.caseStudyImageContainer}>
+              <Zoom classDialog={classes.zoomBackground}>
+                <img
+                  src={afterImageSVG}
+                  width="100%"
+                  style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+                />
+              </Zoom>
+            </div>
+          </section>
+          <img src={width >= 551 ? dots : line} className={classes.dots} />
+
+          {/* _______________________08:IMPACT_________________________ */}
+
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
           >
@@ -566,7 +785,7 @@ const StudentProfile = () => {
               style={{ width: "100%", paddingBottom: width <= 1200 && 0 }}
             >
               <p className={classes.title}>
-                <span className={classes.number}>05</span>Impact
+                <span className={classes.number}>08</span>Impact
               </p>
               <p
                 className={classes.description}
@@ -578,53 +797,87 @@ const StudentProfile = () => {
                 academic context.
               </p>
               <div className={classes.impactContent}>
-                <Zoom classDialog={classes.zoomBackground}>
-                  <img
-                    src={afterImageSVG}
-                    style={{
-                      marginTop: 24,
-                      width: "100%",
-                    }}
-                  />
-                </Zoom>
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "column",
                     width: width > 1200 ? "50%" : "100%",
-                    marginBottom: width >= 1200 ? 64 : 0,
                     alignSelf: "center",
                   }}
                 >
                   <p
                     style={{
-                      fontFamily: "Roobert_Latin_Regular",
+                      fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
                       fontSize: 14,
-                      marginTop: 32,
-                      marginBottom: 32,
+                      marginTop: width >= 1200 ? 24 : 32,
+                      marginBottom: 16,
                     }}
                   >
-                    Results after 6 weeks:
+                    Results after 6 months:
                   </p>{" "}
                   <div className={classes.resultsContainer}>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>91.0%</span>
-                      Reduction in student assessment time
+                      <span className={classes.resultsPercentage}>150%</span>
+                      Increase in student profile page views
                     </p>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>91.0%</span>
-                      Reduction in student assessment time
+                      <span className={classes.resultsPercentage}>40%</span>
+                      Increase in daily active users on this page
                     </p>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>91.0%</span>
-                      Reduction in student assessment time
+                      <span className={classes.resultsPercentage}>28%</span>
+                      Growth in monthly active users
                     </p>
                   </div>
+                  <ul
+                    className={classes.description}
+                    style={{
+                      paddingBottom: width <= 1200 && 16,
+                      paddingTop: width <= 1200 && 16,
+                      paddingLeft: 14,
+                      width: "90%",
+                      marginTop: 24,
+                    }}
+                  >
+                    <span style={{ position: "relative", right: 15 }}>
+                      Systems-level impact:
+                    </span>
+                    <li>
+                      Data visualization patterns I introduced were adopted
+                      across 6 different product areas
+                    </li>
+                    <li>
+                      Established the design language for how we present complex
+                      educational data platform-wide
+                    </li>
+                    <li>
+                      Became the most requested feature demo for new district
+                      onboarding
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  className={classes.quoteContainer}
+                  style={{ marginTop: width >= 1201 && 32 }}
+                >
+                  <p className={classes.quote}>
+                    “I can answer parent questions immediately now instead of
+                    saying 'let me look that up.”
+                  </p>
+                  <p
+                    className={classes.caption}
+                    style={{ marginBottom: width <= 1200 && 13 }}
+                  >
+                    - From a conversation with a frequent Portal user
+                  </p>
                 </div>
               </div>
             </section>
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
+
+          {/* _______________________09: KEY TAKEAWAYS________________________ */}
+
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
@@ -633,53 +886,41 @@ const StudentProfile = () => {
               style={{ paddingBottom: width <= 1200 && 0 }}
             >
               <p className={classes.title}>
-                <span className={classes.number}>06</span>Key insights
+                <span className={classes.number}>09</span>Key takeaways
               </p>
               <p className={classes.description}>
-                Strategic curation beats comprehensive display. Focusing on 4
-                key modules actually increased detailed panel engagement,
-                proving thoughtful hierarchy enhances exploration.
+                <span className={classes.bold}>
+                  Stakeholder alignment is as important as user research.{" "}
+                </span>
+                <br />
+                Getting 5 product teams to agree on design criteria took just as
+                much effort as the actual design work. I learned that framing
+                decisions around shared goals ("tell the student's educational
+                journey") worked better than trying to convince teams my
+                approach was right.
               </p>
               <p className={classes.description}>
-                Technical constraints drive innovation. The skeleton loading
-                system solved performance issues and became a reusable pattern,
-                showing how collaborative problem-solving creates scalable
-                solutions.
+                <span className={classes.bold}>
+                  Data builds consensus that opinions can't.
+                </span>
+                <br />
+                When stakeholders wanted more complexity, showing them that
+                teachers completed tasks 60% faster with the simple version
+                aligned everyone around the focused approach. User testing
+                became my best tool for organizational alignment, not just
+                design validation.
               </p>
               <p className={classes.description}>
-                User needs trump stakeholder requests. Success came from
-                understanding why teachers needed information, not just what
-                information they wanted displayed.
+                <span className={classes.bold}>
+                  Good solutions create ripple effects.
+                </span>
+                <br />
+                The skeleton loading system we built to solve our performance
+                problem became a reusable pattern adopted by 5 other teams. This
+                taught me that addressing immediate constraints thoughtfully can
+                drive platform-wide improvements.
               </p>
             </section>{" "}
-          </section>
-          <img src={width >= 551 ? dots : line} className={classes.dots} />
-          <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
-          >
-            <section
-              className={classes.caseStudyInfo}
-              style={{ paddingBottom: width <= 1200 && 0 }}
-            >
-              <p className={classes.title}>
-                <span className={classes.number}>07</span>Reflection
-              </p>
-              <p className={classes.description}>
-                Looking back, I should have looped in engineering during my
-                wireframing phase rather than after stakeholder approval.
-                Discovering the API performance limitation two weeks into
-                development created unnecessary pressure and timeline risk. The
-                most surprising challenge wasn't technical though—it was
-                internal stakeholder management. Teams genuinely believed more
-                visible data meant more value, and it took persistent advocacy
-                plus our eventual success metrics to shift that mindset.
-                Ironically, the loading constraint led to our biggest win beyond
-                the panel itself: the skeleton system became a reusable
-                component that's now used across the platform. This project
-                taught me that sometimes the best solutions come from embracing
-                constraints rather than working around them.
-              </p>
-            </section>
           </section>
         </section>
       </section>

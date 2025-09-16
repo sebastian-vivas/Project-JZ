@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
 import selfie from "../images/about.jpg";
@@ -5,7 +6,7 @@ import diagonalArrowUpIcon from "../images/diagonal-arrow-up.svg";
 import ceramicPot from "../images/ceramic-pot.svg";
 import ceramicSculpture from "../images/ceramic-sculpture.svg";
 import ceramicHandsFeet from "../images/ceramicHandsFeet.mp4";
-import resumeFile from "../images/JulissaZavala_Resume_2024.pdf";
+import resumeFile from "../images/JulissaZavala_Resume.pdf";
 import { createUseStyles } from "react-jss";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
@@ -17,7 +18,7 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 14,
     lineHeight: 1.3,
     "@media (min-width: 701px) and (max-width: 1270px)": {
@@ -72,7 +73,7 @@ const useStyles = createUseStyles({
     color: "#1E1E1E",
     textDecoration: "none",
     "&:hover": {
-      opacity: .7,
+      opacity: 0.7,
     },
   },
   diagonalArrowUp: {
@@ -153,6 +154,27 @@ const useStyles = createUseStyles({
 const Info = () => {
   const classes = useStyles();
   const { width } = useWindowDimensions();
+  const [imagesLoaded, setImagesLoaded] = useState({
+    selfie: false,
+    ceramicPot: false,
+    ceramicSculpture: false,
+  });
+
+  useEffect(() => {
+    const imagesToPreload = [
+      { key: "selfie", src: selfie },
+      { key: "ceramicPot", src: ceramicPot },
+      { key: "ceramicSculpture", src: ceramicSculpture },
+    ];
+
+    imagesToPreload.forEach(({ key, src }) => {
+      const img = new Image();
+      img.onload = () => {
+        setImagesLoaded((prev) => ({ ...prev, [key]: true }));
+      };
+      img.src = src;
+    });
+  }, []);
 
   return (
     <>
@@ -205,6 +227,11 @@ const Info = () => {
               className={classes.infoImage}
               src={selfie}
               alt="A photo of me, Julissa Zavala, smiling and standing in front of closed storefront in NYC"
+              loading="lazy"
+              style={{
+                opacity: imagesLoaded.selfie ? 1 : 0,
+                transition: "opacity 0.3s ease",
+              }}
             ></img>
           </section>
           <section className={classes.infoContainerRight}>
@@ -234,11 +261,19 @@ const Info = () => {
               src={ceramicPot}
               alt="Cerapic pot of a girl with black hair and large hands leaning over and cradling herself"
               className={classes.ceramicPot}
+              style={{
+                opacity: imagesLoaded.selfie ? 1 : 0,
+                transition: "opacity 0.3s ease",
+              }}
             />
             <img
               src={ceramicSculpture}
               alt="Ceramic sculpture of a hand holding a flower. The hand has a chrome finish and the flower has yellow petals and a green stem"
               className={classes.ceramicSculpture}
+              style={{
+                opacity: imagesLoaded.selfie ? 1 : 0,
+                transition: "opacity 0.3s ease",
+              }}
             />
           </section>
         </section>

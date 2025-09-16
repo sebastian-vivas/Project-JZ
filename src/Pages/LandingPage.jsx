@@ -6,6 +6,7 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 import { createUseStyles } from "react-jss";
 import clsx from "clsx";
 import dataGridLandingImage from "../images/dataDrigLandingImage.svg";
+import studentProfileLandingImage from "../images/homepage_SPpicture.svg";
 
 const useStyles = createUseStyles({
   welcomeSection: {
@@ -23,12 +24,12 @@ const useStyles = createUseStyles({
     },
   },
   landingHeading: {
-    fontFamily: "Roobert_Latin_bold",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 48,
     marginBottom: 24,
   },
   landingSecondaryHeading: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontWeight: 100,
     fontSize: 14,
     width: 650,
@@ -49,7 +50,7 @@ const useStyles = createUseStyles({
     top: 4,
   },
   selectedWorkText: {
-    fontFamily: "Roobert_Latin_Regular",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 14,
     textAlign: "center",
     display: "inline-block",
@@ -80,7 +81,7 @@ const Landing = () => {
         "From data silos to quick insights: designing a student overview panel",
       description:
         "Every stakeholder team wanted their metrics included in the new student overview panel, creating a classic design challenge. Through user research and strategic collaboration, I turned competing priorities into a focused solution that educators actually wanted to use. The technical constraints led to innovations that improved performance across the entire platform.",
-      image: dataGridLandingImage,
+      image: studentProfileLandingImage,
       route: "studentProfile",
     },
     {
